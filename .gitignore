@@ -1,0 +1,8 @@
+#Ignore special files
+
+varnish/
+.idea/
+git/
+google*.html
+mu-cdb1b0da-f955161e-e69d83d5-5fd22fa7.txt
+opcache.php
