@@ -1,8 +1,3 @@
-#Ignore special files
-
-varnish/
-.idea/
-git/
-google*.html
-mu-cdb*.txt
-opcache.php
+git
+.usermin
+.well-known

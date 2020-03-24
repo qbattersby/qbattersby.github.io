@@ -21,3 +21,10 @@ mixpanel.track_links('.js-convert-link', 'Email from Convert form');
 mixpanel.track_links('a.js-twitter-link', 'Twitter Visit');
 mixpanel.track_links('a.js-aboutquinn-link', 'Email from About Quinn Section');
 
+
+// Crazy Egg tracking
+setTimeout(function(){var a=document.createElement("script");
+var b=document.getElementsByTagName("script")[0];
+a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0014/8176.js?"+Math.floor(new Date().getTime()/3600000);
+a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+
