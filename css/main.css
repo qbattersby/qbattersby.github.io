@@ -338,6 +338,9 @@ input {
     display: inline-block;
   }
 
+
+
+
   p,
   h2,
   h3,
@@ -400,6 +403,12 @@ input {
     margin-right: 0;
     margin-bottom: 10px;
   }
+
+
+  .portfolio-grid img {
+    width:100%;
+  }
+
 
   .myportfolio {
     margin-left: 20px;
