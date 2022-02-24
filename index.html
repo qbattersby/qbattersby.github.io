@@ -1,359 +1,224 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js">
-<!--<![endif]-->
-
-<head>
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quinn Battersby is a web experience designer, specializing in developing fast and compliant websites.">
     <title>Kitchener Waterloo Web Design | Quinn Battersby</title>
-    <meta name="description" content="Quinn Battersby is a web designer, creative problem solver and developer living near Waterloo, Ontario, Canada. Click to find out how I can help you improve your business.">
-    <meta name="keywords" content="Web Design, Web Development, HTML, CSS, JavaScript, Marketing, Creative Solutions, Design to Development, Design to Code, Kitchener, Waterloo, Cambridge, Guelph">
-    <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/main.css">
-</head>
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body>
 
-<body class="usingwin">
-
-    <!-- Google Tag Manager -->
-    <noscript>
-        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-T897BK" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-    </noscript>
-    <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-T897BK');</script>
-    <!-- End Google Tag Manager -->
-
-    <script type="text/javascript">
-        mixpanel.track("Hero Page Loaded")
-    </script>
+  <!-- Google Tag Manager -->
+  <noscript>
+    <iframe src="//www.googletagmanager.com/ns.html?id=GTM-T897BK" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <script>(function (w, d, s, l, i) {
+    w[l] = w[l] || []; w[l].push({
+      'gtm.start':
+              new Date().getTime(), event: 'gtm.js'
+    }); var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+            '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', 'GTM-T897BK');</script>
+  <!-- End Google Tag Manager -->
 
 
 
 
-    <div class="container">
 
-        <div class="hello">
-            Hello.
+  <div class="reveal" id="contactForm" data-reveal>
+    <form action="https://formsubmit.co/quinn@battersby.ca" method="POST" />
+    <input type="hidden" name="_subject" value="Contact Form: qbattersby.com">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://www.qbattersby.com">
+
+
+
+    <div class="grid-container contact-form">
+        <div class="grid-x grid-margin-x">
+          <div class="medium-12 cell">
+            <h3>Let's Chat</h3>
+            <p>Whether you’re looking for a full project solution or require specific development skills to complement your in-house team - let me know below so we can start a discussion.</p>
+          </div>
+          <div class="medium-6 cell">
+              <input type="text" placeholder="Your Name">
+          </div>
+          <div class="medium-6 cell">
+              <input type="email" placeholder="Your Email">
+          </div>
+
+          <div class="medium-12 cell">
+
+              <textarea name="message" class="message-box" placeholder="How can I help? "></textarea>
+
+
+            <button type="submit" class="button primary">Send</button>
+
+          </div>
+
         </div>
+      </div>
 
-        <div class="whoami">
-            <h1>My name is Quinn Battersby and this is
-                <br class="visible-xs">
-                <span class="strike">my work.</span>
-            </h1>
-            <div class="myportfolio">my portfolio.</div>
+
+
+    </form>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+
+  <div class="white-container">
+
+    <button class="toggle-contact icon-plus" data-open="contactForm">Contact Quinn</button>
+
+
+    <div class="grid-container">
+
+      <div class="grid-margin-x grid-x align-center">
+        <div class="cell large-12">
+          <h2 class="mega primary-color">Hello.</h2>
+          <img src="img/megaphone.png" alt="Hello Megaphone" class="floating-mp">
+          <div class="shadow"></div>
         </div>
-
-        <section>
-
-            <h3>
-                Being passionate about what you do everyday is
-                <strong>important</strong>.
-                <br> I spend my time working at a local College and doing website design and development for some
-                <span class="blue">amazing people</span>.
-            </h3>
-            <h2>
-                I can help you improve your business
-            </h2>
-            <h3>
-                Through good design, meaningful implementation and sound advice.
-            </h3>
-            <p>
-                Using proven systems I will work with you to create an actionable plan that can be used to meet your
-                business objectives.
-                All services are measured to give you a clear picture on the results of my work.
-                <strong>Would you like to start a conversation about improving your business?</strong>
-            </p>
-            <a href="mailto:quinn@battersby.ca" class="btn moema js-improve-link">Start a Conversation</a>
-        </section>
+      </div>
 
 
-        <section style="margin-bottom:0;">
-            <h2>Some of my work</h2>
-            <p>Below is a selection of work I have completed for clients and agencies around the world. If you have any
-                questions,
-                don't hesitate to
-                <a href="mailto:quinn@battersby.ca">get in touch.</a>
-            </p>
-        </section>
-    </div>
-    <section class="portfolio">
-        <div class="portfolio-grid">
-            <a href="https://daggerwinggroup.com" target="_blank">
-                <img src="img/daggerwing.png" alt="Daggerwing Group">
-            </a>
-            <a href="https://dochangeright.com" target="_blank">
-                <img src="img/dochangeright.png" alt="Do Change Right">
-            </a>
-
-            <a href="https://www.bramptonbot.com" target="_blank">
-                <img src="img/bbot.png" alt="Brampton Board of Trade">
-            </a>
-            <a href="https://www.axonify.com" target="_blank">
-                <img src="img/axonify.png" alt="Axonify">
-            </a>
-            <a href="https://www.syngenta.ca/sme/" target="_blank">
-                <img src="img/syngenta-soymasters.png" alt="Syngenta">
-            </a>
-            <a href="https://oxio.com/" target="_blank">
-                <img src="img/oxio.jpg" alt="OXIO">
-            </a>
-            <a href="https://fmctour.ca/" target="_blank">
-                <img src="img/fmc.png" alt="FMC">
-            </a>
-            <a href="https://freshayrfarm.com/" target="_blank">
-                <img src="img/freshayrfarm.png" alt="SCI">
-            </a>
-            <a href="https://theunicorn.ca" target="_blank">
-                <img src="img/unicorn.png" alt="Unicorn">
-            </a>
-
-            <a href="https://marketplace.axonify.com/" target="_blank">
-                <img src="img/axonify-marketplace.png" alt="Axonify">
-            </a>
-            <a href="https://www.syngenta.ca/findmyrep" target="_blank">
-                <img src="img/syngentafind.jpg" alt="Syngenta Find a Rep">
-            </a>
-            <a href="https://schoolofcreativeindustries.com/" target="_blank">
-                <img src="img/sci.png" alt="SCI">
-            </a>
-
-            <a href="https://surrogacycommunity.ca/" target="_blank">
-                <img src="img/csc.png" alt="Canadian Surrogacy Community">
-            </a>
-
-            <a href="https://www.inflightintegration.com/" target="_blank">
-                <img src="img/inflight.png" alt="Inflight Integration">
-            </a>
-            <a href="https://miovision.com/" target="_blank">
-                <img src="img/miovision.png" alt="Miovision">
-            </a>
-            <a href="https://www.bidvine.com/blog/" target="_blank">
-                <img src="img/bidvine.png" alt="Bidvine">
-            </a>
-            <a href="https://civicdigital.ca/" target="_blank">
-                <img src="img/civicdigital.jpg" alt="Civic Digital">
-            </a>
-
-            <a href="https://catalyst-137.com/" target="_blank">
-                <img src="img/catalyst137.jpg" alt="Catalyst 137">
-            </a>
-            <a href="https://www.bleacherguys.com/" target="_blank">
-                <img src="img/bleacherguys.jpg" alt="Bleacher Guys">
-            </a>
-
-            <a href="https://www.grhallthingscovid.com/" target="_blank">
-                <img src="img/grhcovid.jpg" alt="GRH All Things Covid">
-            </a>
-            <a href="http://denmech.ca/" target="_blank">
-                <img src="img/denmech.jpg" alt="Denaeyer Mechanical">
-            </a>
-            <a href="http://katrinapaulinephotography.com/" target="_blank">
-                <img src="img/katrina.jpg" alt="Katrina Pauline">
-            </a>
-
-            <a href="http://www.storagestcatharines.com/" target="_blank">
-                <img src="img/a1classicselfstorage.jpg" alt="A1 Classic Self Storage">
-            </a>
-            <a href="http://www.abexinsurance.com" target="_blank">
-                <img src="img/abex.jpg" alt="ABEX Insurance">
-            </a>
-            <a href="http://www.thebelmontvillage.ca" target="_blank">
-                <img src="img/belmontvillage.jpg" alt="Belmont Village">
-            </a>
-            <a href="http://www.betterbedtime.ca" target="_blank">
-                <img src="img/betterbedtime.jpg" alt="Better Bedtime">
-            </a>
-            <a href="https://www.bidvine.com/blog/" target="_blank">
-                <img src="img/bidvine.jpg" alt="Bidvine">
-            </a>
-            <a href="http://billolmsteadteam.com/" target="_blank">
-                <img src="img/billolmstead.jpg" alt="Bill Olmstead">
-            </a>
-            <a href="http://bradaustin.com/" target="_blank">
-                <img src="img/bradaustin.jpg" alt="Brad Austin Photography">
-            </a>
-            <a href="https://chilenobayresidences.com/" target="_blank">
-                <img src="img/chileno.jpg" alt="Chileno Bay Residences">
-            </a>
-            <a href="http://www.dnascreening.com/" target="_blank">
-                <img src="img/dna.jpg" alt="DNA Screen Printing">
-            </a>
-            <a href="http://elmiradcl.com" target="_blank">
-                <img src="img/edcl.jpg" alt="Elmira District Community Living">
-            </a>
-            <a href="http://www.fijiresort.com" target="_blank">
-                <img src="img/fiji.jpg" alt="Fiji Resort">
-            </a>
-            <a href="http://www.getcraneparts.com" target="_blank">
-                <img src="img/getcraneparts.jpg" alt="Get Crane Parts">
-            </a>
-            <a href="http://www.howdoitradestocks.com" target="_blank">
-                <img src="img/hdits.jpg" alt="How Do I Trade Stocks">
-            </a>
-            <a href="http://hdthreshing.com/" target="_blank">
-                <img src="img/hdthreshing.jpg" alt="HD Threshing">
-            </a>
-            <a href="http://heatherharrisonrealestate.com/" target="_blank">
-                <img src="img/heatherharrison.jpg" alt="Heather Harrison">
-            </a>
-            <a href="http://www.intranext.com/" target="_blank">
-                <img src="img/intranext.jpg" alt="Intranext">
-            </a>
-            <a href="http://www.laborie.com/" target="_blank">
-                <img src="img/laborie.jpg" alt="Laborie">
-            </a>
-            <a href="https://www.laquintaresort.com/summer-chill/" target="_blank">
-                <img src="img/laquinta.jpg" alt="La Quinta">
-            </a>
-            <a href="http://www.midtown.yoga/" target="_blank">
-                <img src="img/midtownyoga.jpg" alt="Midtown Yoga KW">
-            </a>
-            <a href="http://www.morgan-re.com/" target="_blank">
-                <img src="img/morganre.jpg" alt="Morgan Real Estate">
-            </a>
-            <a href="http://www.palisadeshospitality.com/" target="_blank">
-                <img src="img/palisades.jpg" alt="Palisades Hospitality">
-            </a>
-            <a href="http://www.reunionrealty.com/" target="_blank">
-                <img src="img/reuinionrealty.jpg" alt="Reunion Realty">
-            </a>
-            <a href="http://rivalsolutions.com/rubix/" target="_blank">
-                <img src="img/rivalsolutions.jpg" alt="Rival Solutionss">
-            </a>
-            <a href="http://sheenasantos.com/" target="_blank">
-                <img src="img/sheenasantos.jpg" alt="Sheena Santos">
-            </a>
-            <a href="http://www.silgan.com/" target="_blank">
-                <img src="img/silgan.jpg" alt="Silgan">
-            </a>
-            <a href="http://www.silgandispensing.com/" target="_blank">
-                <img src="img/silgandispensing.jpg" alt="Silgan Dispensing">
-            </a>
-            <a href="http://www.sweetdreamsonbaptiste.com/" target="_blank">
-                <img src="img/sweetdreams.jpg" alt="Sweet Dreams on Baptiste">
-            </a>
-            <a href="http://torontogolf.coursetour.ca/" target="_blank">
-                <img src="img/togolf.jpg" alt="Toronto Golf">
-            </a>
-            <a href="http://tracyvalko.ca/" target="_blank">
-                <img src="img/tracyvalko.jpg" alt="Tracy Valko">
-            </a>
-            <a href="http://unisensor.ch/" target="_blank">
-                <img src="img/unisensor.jpg" alt="Unisensor">
-            </a>
+      <section class="grid-margin-x grid-x">
+        <div class="cell large-8">
+          <p class="main-callout">
+            I’m <strong>Quinn Battersby</strong>,<br>
+            a web experience designer,
+            specializing in developing<br>
+            fast and compliant websites.
+            <img src="img/icon-screen.svg" class="icon-screen">
+          </p>
         </div>
-    </section>
+      </section>
 
-    <div class="container">
-        <section>
-            <h2>Some things others are saying</h2>
-            <p>
-                Our team at Stryve loves working Quinn! Quinn is knowledgeable, responsive and energetic. We highly recommend him for web development!
-            <div class="testimonial">
-                <span class="author">Sourov De</span>
-                (Managing Partner at
-                <a href="https://www.stryvemarketing.com/" target="_blank" class="testimonial-link">https://www.stryvemarketing.com/</a>)
-            </div>
-            </p>
-            <p>I collaborated with Quinn on curriculum for two Public Relations courses focused on digital citizenship
-                and crisis
-                management. Quinn's creativity, enthusiasm and follow-through were key to an outstanding lesson plan
-                and
-                huge learning value for the students.
-                <div class="testimonial">
-                    <span class="author">Paula Barrett</span>
-                    (Professor of Public Relations, Conestoga College)
-                </div>
-            </p>
-            <p>
-                Quinn's enthusiasm and insight have led him to be successful in his ventures. I would highly recommend
-                him for either your
-                advertising or marketing initiatives.
-                <div class="testimonial">
-                    <span class="author">Daniel Rodrigues</span>
-                    (Industry Consultant, Community Engagement Specialist)
-                </div>
-            </p>
+      <section class="grid-margin-x grid-x align-center-middle">
+        <div class="cell xlarge-6">
+          <div class="bolts">
+            <img src="img/lightning.svg" class="bolt">
+            <img src="img/icon-lightning.svg" class="bolt-mini">
+          </div>
+        </div>
+        <div class="cell xlarge-6">
+          <h3>It’s all about<br>
+            getting it done.</h3>
+          <p>I will help you make meaningful lasting
+            decisions that will improve the web
+            experience for your users.</p>
 
-            <p>
-                Quinn did a great job implementing the design that I was looking for in my site. I now have an
-                effective tool to communicate
-                with clients, prospects and people looking for general tax and accounting information on the internet.
-                He
-                was also willing and able to work with the limited resources and knowledge I had.
-                <div class="testimonial">
-                    <span class="author">Noah Jensen</span>
-                    (Partner at
-                    <a href="http://srcollp.ca/" target="_blank" class="testimonial-link">Szczepski, Racolta, Jensen
-                        &amp; Co. LLP</a>)
-                </div>
-            </p>
-            <small>Start a conversation and</small>
-            <br>
-            <a href="mailto:quinn@battersby.ca" class="btn moema js-testimonials-link">Add your name above</a>
-        </section>
+            <p>I can help you deliver exceptional design
+            solutions to complex business problems -
+            extremely efficiently and delivered at
+              a lightning-fast pace.</p>
+
+            <p>Whether you’re looking for a full project
+            solution or require specific development
+            skills to complement your in-house team
+            I can work within your team to produce
+            thoughtful solutions.</p>
+
+            <button class="toggle-contact clear-btn js-getit-link" data-open="contactForm">Let's Talk</button>
+        </div>
+      </section>
 
 
+      <div class="grid-x grid-margin-x">
+        <div class="cell large-12">
+          <h3 class="submega text-center primary-color">Work</h3>
+        </div>
+      </div>
+
+      <div class="work-section">
+        <a href="https://www.trimach.com" class="work-item" style="background-image: url(img/trimach.png)">
+          <div class="slide-visit">Visit Site</div>
+        </a>
+        <a href="https://www.daggerwinggroup.com" target="_blank" class="work-item" style="background-image: url(img/daggerwing.jpg)">
+          <div class="slide-visit">Visit Site</div>
+        </a>
+        <a href="https://www.dochangeright.com" target="_blank" class="work-item" style="background-image: url(img/dcr.jpg)">
+          <div class="slide-visit">Visit Site</div>
+        </a>
+        <a href="https://oracleinterns2020.netlify.app/#/" target="_blank" class="work-item" style="background-image: url(img/oracle.jpg)">
+          <div class="slide-visit">Visit Site</div>
+        </a>
+        <a href="https://oracle-recruit.netlify.app/" target="_blank" class="work-item" style="background-image: url(img/oracle2.png)">
+          <div class="slide-visit">Visit Site</div>
+        </a>
+        <a href="https://chilenobayresidences.com/"  target="_blank" class="work-item" style="background-image: url(img/chilenobay.png)">
+          <div class="slide-visit">Visit Site</div>
+        </a>
+        <a href="https://axonify.com/" target="_blank" class="work-item" style="background-image: url(img/axonify.png)">
+          <div class="slide-visit">Visit Site</div>
+        </a>
+        <a href="https://oxio.com/" target="_blank" class="work-item" style="background-image: url(img/oxio.png)">
+          <div class="slide-visit">Visit Site</div>
+        </a>
+        <a href="https://syngenta.ca/sme/" target="_blank"  class="work-item" style="background-image: url(img/syngenta.png)">
+          <div class="slide-visit">Visit Site</div>
+        </a>
+        <div class="work-follow"></div>
+      </div>
 
 
-        <section>
-            <h2>
-                Have more specific questions?
-            </h2>
-            <h3>
-                And some more info about me.
-            </h3>
-            <p>
-                Find me on
-                <a href="http://www.twitter.com/qbattersby" target="_blank" class="js-twitter-link">twitter</a> if you
-                like. If you prefer traditional, give me a call
-                <a href="tel:226-338-1659">226-338-1659</a>
-                or send me an email at
-                <a href="mailto:quinn@battersby.ca" class="js-aboutquinn-link">quinn@battersby.ca</a>
-            </p>
-            <p>
-                <strong>My Story:</strong> I'm a web developer, entrepreneur, a husband, a father of
-                <strong>three</strong> amazing kids, a technologist, a lover of good food and healthy living in Paris,
-                Ontario.
-                <span class="smaller">(it’s small, awesome and close to Waterloo)</span>
-            </p>
-            <p>I have been working with the web for the past 11 years, I co-founded
-                <a href="http://www.goosechase.com" target="_blank">Goosechase</a>, I help students learn the web and
-                more at
-                <a href="http://www.conestogac.on.ca">Conestoga College</a> and I am always learning new tricks. </p>
+      <section class="grid-margin-x grid-x align-center">
+        <div class="cell large-9">
+          <div class="testimonial">
+            <p>Our team at Stryve loves working Quinn! Quinn is knowledgeable, responsive and energetic. We highly recommend him for web development!  </p>
+            <p class="author">Sourov De</p>
+            <p class="author-title">Managing Partner at <a href="https://www.stryvemarketing.com" targe="_blank">Stryve Marketing</a></p>
+          </div>
+        </div>
+      </section>
 
-        </section>
+
+      <section class="grid-margin-x grid-x align-center">
+        <div class="cell large-9">
+          <h2><a href="#" class="toggle-contact js-getintouch" data-open="contactForm">Get in Touch</a></h2>
+          <p>Find me on <a class="js-twitter-link" href="https://www.twitter.com/qbattersby">twitter</a> if that's your thing. If you prefer traditional, give me a call <a href="tel:226-338-1659" class="js-phone-link">226-338-1659</a> or send me an email at <a href="#" class="toggle-contact js-aboutquinn-link" data-open="contactForm">quinn@battersby.ca</a>.  </p>
+          <p>
+            <strong>My Story:</strong> I’m a web developer, entrepreneur, a husband,
+            a father of three amazing kids, a technologist, a lover of good food and healthy living in Delhi, Ontario.
+          </p>
+          <p>I have been working with the web for the past 12+ years, I co-founded Goosechase, I help students learn the web and more at Conestoga College and I am always learning new tricks. </p>
+        </div>
+      </section>
+
+
 
 
     </div>
-    <script async src="js/vendor/modernizr-2.6.2.min.js"></script>
-    <script async src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-    <script async src="js/main.js"></script>
+  </div>
 
-    <script async src="js/plugins.js"></script>
-    <script async>
-            (function (i, s, o, g, r, a, m) {
-                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date(); a = s.createElement(o),
-                    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-        ga('create', 'UA-12843625-1', 'auto');
-        ga('send', 'pageview');
 
-    </script>
-</body>
 
+    <script src="js/jquery.js"></script>
+    <script src="js/foundation.js"></script>
+    <script src="js/jquery.fittext.js"></script>
+    <script src="js/app.js"></script>
+
+  <script async>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date(); a = s.createElement(o),
+              m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-12843625-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+  <script type="text/javascript">
+    mixpanel.track("Homepage Loaded")
+  </script>
+
+  </body>
 </html>

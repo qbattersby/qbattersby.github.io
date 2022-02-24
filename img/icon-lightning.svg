@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="61.666" height="123.231" viewBox="0 0 61.666 123.231">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #6463b1;
+      }
+    </style>
+  </defs>
+  <path id="Icon_weather-lightning" data-name="Icon weather-lightning" class="cls-1" d="M0,122.21H3.175L59.189,45.271q1.1-2.041-1.221-2.041H34.846L59.189,2.041C59.922.68,59.352,0,57.561,0H26.542a3,3,0,0,0-2.361,1.36L1.547,57.288c-.163,1.36.326,2.041,1.547,2.041H25.483Z" transform="translate(2.133) rotate(1)"/>
+</svg>

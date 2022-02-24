@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="406.265" height="713.115" viewBox="0 0 406.265 713.115">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #6463b1;
+      }
+    </style>
+  </defs>
+  <g id="Group_4" data-name="Group 4" transform="translate(-455.82 -1815.885)">
+    <path id="Icon_weather-lightning" data-name="Icon weather-lightning" class="cls-1" d="M0,621.713H16.153L301.111,230.307q5.591-10.381-6.213-10.381H177.27L301.111,10.381C304.838,3.46,301.939,0,292.827,0h-157.8c-4.556,0-8.284,2.307-12.011,6.921L7.869,291.44c-.828,6.921,1.657,10.381,7.869,10.381h113.9Z" transform="matrix(0.985, 0.174, -0.174, 0.985, 563.779, 1815.885)"/>
+    <path id="Icon_weather-lightning-2" data-name="Icon weather-lightning" class="cls-1" d="M0,345.707H8.982L167.434,128.064q3.109-5.772-3.455-5.772H98.572L167.434,5.772C169.507,1.924,167.9,0,162.828,0H75.081C72.547,0,70.474,1.283,68.4,3.848L4.376,162.057c-.461,3.848.921,5.772,4.376,5.772H72.087Z" transform="matrix(0.927, 0.375, -0.375, 0.927, 705.916, 2145.369)"/>
+  </g>
+</svg>
