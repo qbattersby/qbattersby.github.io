@@ -231,6 +231,13 @@ h3 {
     font-size:20px;
     line-height:26px;
     max-width:100%;
+    br {
+
+      display:none;
+      &:first-of-type {
+        display:block;
+      }
+    }
   }
 }
 
