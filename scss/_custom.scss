@@ -461,6 +461,10 @@ h3 {
   transition:all 2s ease-in-out;
   &:hover {
     transform:rotate(420deg) scale(1.1);
+    color: transparent;
+  }
+  &:active, &:focus {
+    color: transparent !important;
   }
   @include breakpoint(medium down){
     width:33px;
