@@ -58,6 +58,14 @@ document.addEventListener('DOMContentLoaded', function() {
             [100, 500, 1000].forEach(delay => {
                 setTimeout(updateCanvasSize, delay);
             });
+
+            // Reveal white container after background animation
+            setTimeout(() => {
+                const whiteContainer = document.querySelector('.white-container');
+                if (whiteContainer) {
+                    whiteContainer.classList.add('is-visible');
+                }
+            }, 2000); // 2 second delay before showing the container
         });
 
         let resizeTimeout;

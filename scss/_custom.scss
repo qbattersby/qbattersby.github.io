@@ -103,31 +103,41 @@ p {
 }
 
 .white-container {
-  position:relative;
-
-  background:white;
-  padding-top:160px;
-  padding-bottom:120px;
-  max-width:1300px;
-  width:90%;
+  position: relative;
+  background: white;
+  padding-top: 160px;
+  padding-bottom: 120px;
+  max-width: 1300px;
+  width: 90%;
   padding-left: 80px;
-  padding-right:80px;
-  margin-left:auto;
-  margin-right:auto;
-  @include breakpoint(xlarge down){
-    padding-top:100px;
-    padding-bottom:80px;
+  padding-right: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
   }
-  @include breakpoint(large down){
-    padding-left:40px;
-    padding-right:40px;
+
+  @include breakpoint(xlarge down) {
+    padding-top: 100px;
+    padding-bottom: 80px;
   }
-  @include breakpoint(small down){
-    margin-top:20px;
-    margin-bottom:20px;
-    padding-left:15px;
-    padding-right:15px;
-    width:90%;
+  @include breakpoint(large down) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  @include breakpoint(small down) {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 90%;
   }
 }
 
@@ -347,8 +357,7 @@ h3 {
   height: 0;
   padding-bottom: 75%;
   overflow: hidden;
-  margin-bottom: 2rem;
-  border-radius: 8px;
+  border-radius: 0px;
   
   img {
     position: absolute;
@@ -397,7 +406,7 @@ h3 {
     margin: 0;
     text-align: center;
     font-size: 1.5rem;
-    
+    font-weight: 600;
     @include breakpoint(small only) {
       font-size: 1.2rem;
     }
@@ -560,6 +569,10 @@ h3 {
 
 .contact-form {
   padding: 50px;
+  h3 {
+    font-size:3rem;
+    line-height: 1;
+  }
 }
 
 .button {
