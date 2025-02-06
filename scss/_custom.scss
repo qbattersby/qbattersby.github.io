@@ -1,38 +1,44 @@
 html {
-  background: $primary;
-  background-image:url(../img/peri-bg.png);
-  background-position: center;
-  background-size:cover;
-  background-attachment: fixed;
+  // background: $primary;
+  // background-image:url(../img/new-bg.webp);
+  // background-position: center;
+  // background-size:cover;
+  // background-attachment: fixed;
+  scroll-behavior: smooth;
 }
 
 a {
-  transition: color 0.3s ease-in-out;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display:inline-block;
-  &:after {
-    margin-top:0px;
-    content: '';
-    display:block;
-    height:1px;
-    width:1%;
-    transition: all 0.4s ease-in-out;
-  }
-  &:hover {
-    &:after {
-      width:100%;
-      background: $primary;
-    }
-  }
+  position: relative;
+  color: $primary;
+  // &:after {
+  //   content: '';
+  //   position: absolute;
+  //   width: 100%;
+  //   transform: scaleX(0);
+  //   height: 2px;
+  //   bottom: -2px;
+  //   left: 0;
+  //   background-color: $primary;
+  //   transform-origin: bottom right;
+  //   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  // }
+
 }
 
 body {
-  background:transparent;
-  font-size:24px;
+  background: transparent;
+  font-size: 24px;
+  padding-top: 100px;
+  padding-bottom: 100px;
   @include breakpoint(xlarge down){
-    font-size:20px;
+    font-size: 20px;
   }
   @include breakpoint(small down){
-    font-size:16px;
+    font-size: 16px;
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
 }
 
@@ -59,6 +65,21 @@ section {
       margin-bottom: 50px;
     }
   }
+  opacity: 0;
+  transform: translateY(30px);
+  will-change: opacity, transform;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &.fade-in-up {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &.fade-out {
+    opacity: 0;
+    transform: translateY(20px);
+  }
 }
 
 p {
@@ -83,8 +104,7 @@ p {
 
 .white-container {
   position:relative;
-  margin-top:100px;
-  margin-bottom: 100px;
+
   background:white;
   padding-top:160px;
   padding-bottom:120px;
@@ -103,11 +123,11 @@ p {
     padding-right:40px;
   }
   @include breakpoint(small down){
-    margin-top:30px;
-    margin-bottom:30px;
+    margin-top:20px;
+    margin-bottom:20px;
     padding-left:15px;
     padding-right:15px;
-    width:96%;
+    width:90%;
   }
 }
 
@@ -160,58 +180,66 @@ h3 {
 
 @keyframes float {
   0% {
-    transform: translatey(0px);
+    transform: translatey(0px) rotate(0deg);
+  }
+  25% {
+    transform: translatey(-15px) rotate(1deg);
   }
   50% {
-
-    transform: translatey(-20px);
+    transform: translatey(-20px) rotate(-1deg);
+  }
+  75% {
+    transform: translatey(-15px) rotate(0.5deg);
   }
   100% {
-    transform: translatey(0px);
+    transform: translatey(0px) rotate(0deg);
   }
 }
 
 .floating-mp {
-  width:65%;
-  height:auto;
-  display:block;
-  margin-left:auto;
-  margin-right:auto;
-  margin-top:-8vw;
+  width: 65%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -8vw;
   animation: float 8s ease-in-out infinite;
   transform: translatey(0px);
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1)) 
+         drop-shadow(0 6px 6px rgba(0, 0, 0, 0.1));
+  will-change: transform;
 }
 
 @keyframes shadowPulse {
   0% {
-    width: 40%;
-    opacity:1;
+    opacity: 0.7;
+    transform: scale(1);
+    filter: blur(10px);
   }
   50% {
-
-    width: 55%;
-    opacity:0.8;
+    opacity: 0.5;
+    transform: scale(1.1);
+    filter: blur(15px);
   }
   100% {
-    width: 40%;
-    opacity:1;
+    opacity: 0.7;
+    transform: scale(1);
+    filter: blur(10px);
   }
 }
 
 .shadow {
-  width:40%;
-  height:40px;
-  background:rgba(0,0,0,0.045);
-  border-radius: 75%;
-  box-shadow: 0 0px 25px 20px rgba(0,0,0,0.045);
-  display:block;
-  margin-left:auto;
-  margin-right:auto;
-  margin-top:30px;
+  width: 40%;
+  height: 40px;
+  background: rgba($primary, 0.1);
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
   animation: shadowPulse 8s ease-in-out infinite;
-
+  will-change: transform, opacity, filter;
 }
-
 
 .main-callout {
   font-size:45px;
@@ -232,7 +260,6 @@ h3 {
     line-height:26px;
     max-width:100%;
     br {
-
       display:none;
       &:first-of-type {
         display:block;
@@ -242,15 +269,17 @@ h3 {
 }
 
 .icon-screen {
-  position:absolute;
-  bottom:10px;
-  right: -86px;
-  width:85px;
-  @include breakpoint(small down){
-    bottom:auto;
-    top:-50px;
-    width:65px;
-    right:-10px;
+  position: absolute;
+  bottom: 10px;
+  right: -120px;
+  width: 150px;
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+  
+  @include breakpoint(small down) {
+    bottom: auto;
+    top: -50px;
+    width: 85px;
+    right: -10px;
   }
 }
 
@@ -282,7 +311,6 @@ h3 {
   }
 }
 
-
 .work-section {
   width: calc(100% + 190px);
   margin-left: -95px;
@@ -310,35 +338,81 @@ h3 {
     margin-left:-25px;
     margin-right:-25px;
     margin-top:-30px;
-
   }
 }
 
 .work-item {
-  height: 100vh;
-  max-height:760px;
-  position: sticky;
-  top: 0;
-  width:100%;
-  background-size:cover;
-  background-position: top left;
-  background-color: rgba($primary, 0.7);
-  background-blend-mode: multiply;
-  transition: all 0.7s ease-in-out;
-  &:hover {
-    background-color:transparent;
-    .slide-visit {
-      bottom:0px;
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .work-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba($primary, 0.9);
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 1rem;
+    z-index: 2;
+    
+    @include breakpoint(small only) {
+      padding: 0.5rem;
+      background: rgba($primary, 0.85);
     }
   }
-  @include breakpoint(large down){
-    max-height:660px;
+  
+  &:hover {
+    .work-overlay {
+      opacity: 1;
+    }
+    
+    img {
+      transform: scale(1.05);
+    }
   }
-  @include breakpoint(medium down){
-    max-height:460px;
+  
+  h4 {
+    color: white;
+    margin: 0;
+    text-align: center;
+    font-size: 1.5rem;
+    
+    @include breakpoint(small only) {
+      font-size: 1.2rem;
+    }
   }
-  @include breakpoint(medium down){
-    max-height:260px;
+  
+  p {
+    color: white;
+    margin: 0.5rem 0;
+    text-align: center;
+    font-size: 1rem;
+    
+    @include breakpoint(small only) {
+      font-size: 0.9rem;
+      margin: 0.25rem 0;
+    }
   }
 }
 
@@ -379,7 +453,7 @@ h3 {
 
 .testimonial {
   padding:90px;
-  background:$primary;
+  background: $primary;
   color:white;
   width: 100%;
   @include breakpoint(xlarge down){
@@ -404,7 +478,6 @@ h3 {
       &:last-of-type {
         margin-bottom:0;
       }
-
     }
   }
   a {
@@ -485,7 +558,6 @@ h3 {
   }
 }
 
-
 .contact-form {
   padding: 50px;
 }
@@ -514,48 +586,56 @@ h3 {
 }
 
 .bolt-mini {
-  position:absolute;
-  bottom:170px;
+  position: absolute;
+  bottom: 170px;
   left: 20px;
-  transform: rotate(-30deg) scale(1.5) translateY(-30px);
-  animation: zap 3s ease infinite forwards;
-  opacity:0;
-  @include breakpoint(large down){
-    width:10%;
-    bottom:100px;
+  transform-origin: center;
+  animation: zap 3s ease-in-out infinite;
+  opacity: 0;
+  will-change: transform, opacity;
+  
+  @include breakpoint(large down) {
+    width: 10%;
+    bottom: 100px;
   }
-  @include breakpoint(medium down){
-    width:10%;
-    bottom:60px;
-    left:40px;
+  @include breakpoint(medium down) {
+    width: 10%;
+    bottom: 60px;
+    left: 40px;
   }
-  @include breakpoint(small down){
-    display:none;
+  @include breakpoint(small down) {
+    display: none;
   }
 }
 
 @keyframes zap {
   0% {
-    transform:rotate(-30deg) scale(1.5) translateY(-30px);
-    opacity:0;
+    opacity: 0;
+    transform: rotate(-30deg) scale(1) translateY(-30px);
   }
   20% {
-    transform:rotate(-30deg) scale(1.5) translateY(-20px);
-    opacity:0;
+    opacity: 0;
+    transform: rotate(-30deg) scale(1.2) translateY(-20px);
   }
   30% {
-    transform:rotate(-30deg) scale(1.5) translateY(3px);
-    opacity:1;
+    opacity: 1;
+    transform: rotate(-25deg) scale(1.4) translateY(3px);
+  }
+  35% {
+    transform: rotate(-35deg) scale(1.5) translateY(0);
   }
   40% {
-    transform:rotate(-30deg) scale(1.5) translateY(0px);
-    opacity:1;
+    opacity: 1;
+    transform: rotate(-30deg) scale(1.5) translateY(0);
+  }
+  50% {
+    opacity: 0;
+    transform: rotate(-30deg) scale(1) translateY(0);
   }
   100% {
-    transform:rotate(-30deg) scale(1.5) translateY(0px);
-    opacity:1;
+    opacity: 0;
+    transform: rotate(-30deg) scale(1) translateY(0);
   }
-
 }
 
 .faq-item {
@@ -585,4 +665,209 @@ h3 {
 }
 ul {
   margin-bottom: 30px;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.accordion {
+  background: transparent;
+  margin-top: 2rem;
+
+  .accordion-item {
+    background: transparent;
+    margin-bottom: 1.5rem;
+    border: none;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .accordion-title {
+    color: $primary;
+    border: none;
+    background: transparent;
+    font-size: 28px;
+    line-height: 1.3;
+    padding: 1rem 3rem 1rem 0;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+
+    &::before {
+      content: '+';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 42px;
+      line-height: 1;
+      color: $primary;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      background: transparent;
+      color: darken($primary, 10%);
+    }
+
+    @include breakpoint(medium down) {
+      font-size: 24px;
+      padding: 0.75rem 2.5rem 0.75rem 0;
+
+      &::before {
+        font-size: 36px;
+      }
+    }
+
+    @include breakpoint(small down) {
+      font-size: 20px;
+      padding: 0.5rem 2rem 0.5rem 0;
+
+      &::before {
+        font-size: 32px;
+      }
+    }
+  }
+
+  .accordion-content {
+    border: none;
+    padding: 0 3rem 1.5rem 0;
+    background: transparent;
+    color: $black;
+    font-size: 20px;
+    line-height: 1.6;
+
+    @include breakpoint(medium down) {
+      font-size: 18px;
+      padding: 0 2.5rem 1rem 0;
+    }
+
+    @include breakpoint(small down) {
+      font-size: 16px;
+      padding: 0 2rem 1rem 0;
+    }
+  }
+
+  .is-active > .accordion-title::before {
+    transform: translateY(-50%) rotate(45deg);
+  }
+}
+
+.portfolio-grid {
+  margin-top: 2rem;
+  
+  .cell {
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(30px);
+    will-change: opacity, transform;
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    &.fade-in-up {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.button.hollow.white {
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  color: white;
+  padding: 0.85em 1.5em;
+  margin: 1rem 0 0;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: transparent;
+  z-index: 1;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 0;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    background: white;
+    transition: height 0.3s ease-in-out;
+    z-index: -1;
+  }
+  
+  &:hover {
+    color: $primary;
+    border-color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    
+    &::before {
+      height: 450%;
+    }
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+  
+  @include breakpoint(small only) {
+    padding: 0.5em 1em;
+    margin-top: 0.5rem;
+  }
+}
+
+.button.primary {
+  background-color: $primary;
+  
+  &:hover {
+    background-color: darken($primary, 10%);
+  }
+}
+
+.button.hollow.white {
+  &:hover {
+    color: $primary;
+  }
+}
+
+a {
+  &:after {
+    background-color: $primary;
+  }
+  
+  &:hover {
+    color: $primary;
+  }
+}
+
+.icon-plus {
+  &:hover {
+    background-color: rgba($primary, 0.1);
+  }
+}
+
+:last-child:not(.is-active)>.accordion-title, :last-child>.accordion-content:last-child {
+  border-bottom: none !important;
+}
+
+@keyframes screenFloat {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }

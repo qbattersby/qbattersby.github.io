@@ -1,39 +1,190 @@
-$(document).foundation();
+/**
+ * Main application JavaScript
+ * Handles background animation, analytics tracking, and UI interactions
+ */
 
-jQuery('.mega').fitText(0.28);
-jQuery('.submega').fitText(0.34);
+/**
+ * Updates canvas dimensions to match viewport and content size
+ */
+function updateCanvasSize() {
+    const canvas = document.getElementById('box');
+    if (!canvas) return;
 
-// Load MixPanel
-(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
-typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,
-    e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
-mixpanel.init("c92a5986631ed0a4b6c19404c128f2b0");
+    // Force a reflow to get accurate dimensions
+    document.body.offsetHeight;
 
-mixpanel.track_links('button.js-getit-link', 'Email Click from Get It Done Section');
-mixpanel.track_links('button.icon-plus', 'Email Click from Plus Icon');
-mixpanel.track_links('a.js-getintouch', 'Email Click from Large Get in Touch');
-mixpanel.track_links('a.js-phone-link', 'Phone Number Click');
-
-
-mixpanel.track_links('a.js-twitter-link', 'Twitter Visit');
-mixpanel.track_links('a.js-aboutquinn-link', 'Email from About Quinn Section');
-
-
-
-// Crazy Egg tracking
-setTimeout(function(){var a=document.createElement("script");
-    var b=document.getElementsByTagName("script")[0];
-    a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0014/8176.js?"+Math.floor(new Date().getTime()/3600000);
-    a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
-
-
-    document.addEventListener('DOMContentLoaded', function() {
-        const faqQuestions = document.querySelectorAll('.faq-question');
+    const whiteContainer = document.querySelector('.white-container');
+    const containerHeight = whiteContainer ? whiteContainer.offsetHeight : 0;
     
-        faqQuestions.forEach(question => {
-            question.addEventListener('click', function() {
-                const answer = this.nextElementSibling;
-                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
-            });
+    canvas.width = window.innerWidth;
+    canvas.height = Math.max(
+        window.innerHeight,
+        document.documentElement.scrollHeight,
+        containerHeight + 400 // Increased padding for better coverage
+    );
+
+    // Trigger a resize event to ensure fluid background adjusts
+    window.dispatchEvent(new Event('resize'));
+}
+
+// Initialize fluid background animation
+document.addEventListener('DOMContentLoaded', function() {
+    try {
+        const canvas = document.getElementById('box');
+        if (!canvas) {
+            throw new Error('Canvas element not found');
+        }
+
+        // Initial size setup
+        updateCanvasSize();
+
+        // Set up event listeners for size updates
+        window.addEventListener('load', () => {
+            // Update size after all resources are loaded
+            updateCanvasSize();
+            
+            // Additional checks after load
+            setTimeout(updateCanvasSize, 100);
+            setTimeout(updateCanvasSize, 500);
+            setTimeout(updateCanvasSize, 1000);
         });
+
+        window.addEventListener('resize', updateCanvasSize);
+
+        // Configure and initialize fluid background
+        const bg = new Color4Bg.AestheticFluidBg({
+            canvas: canvas,
+            colors: ["#2d5283", "#000000", "#2d5283", "#000000", "#2d5283", "#00000e"],
+            loop: true,
+            seed: 64783,
+            speed: 0.5,
+            scale: 1.2,
+            noise: 35,
+            animate: true
+        });
+
+        // Start animation loop
+        function animate() {
+            bg.update();
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        // Update canvas when accordion state changes
+        $('.accordion').on('down.zf.accordion up.zf.accordion', function() {
+            setTimeout(updateCanvasSize, 300);
+        });
+
+        // Update size when Foundation is initialized
+        $(document).on('initialized.zf', function() {
+            updateCanvasSize();
+        });
+
+        console.log('Background initialized and animating');
+    } catch (error) {
+        console.error('Error initializing background:', error);
+    }
+});
+
+/**
+ * Initialize MixPanel Analytics
+ * Loads MixPanel script and sets up tracking
+ */
+(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
+
+/**
+ * Document Ready Handler
+ * Initializes UI components and sets up interactions
+ */
+$(document).ready(function() {
+    // Initialize responsive text sizing
+    jQuery('.mega').fitText(0.28);
+    jQuery('.submega').fitText(0.34);
+
+    // Set up Foundation accordion
+    $('.accordion').attr('data-accordion', '');
+    $('.accordion-item').attr('data-accordion-item', '');
+    
+    // Initialize Foundation framework
+    $(document).foundation();
+
+    // Configure accordion behavior
+    const accordionOptions = new Foundation.Accordion($('.accordion'), {
+        multiExpand: false,
+        allowAllClosed: true
     });
+
+    // Set up scroll animations using Intersection Observer
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    function handleIntersection(entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                requestAnimationFrame(() => {
+                    entry.target.classList.add('fade-in-up');
+                });
+                observer.unobserve(entry.target);
+            }
+        });
+    }
+
+    const observer = new IntersectionObserver(handleIntersection, observerOptions);
+
+    function initializeObservers() {
+        document.querySelectorAll('section, .portfolio-grid .cell').forEach((element) => {
+            element.classList.remove('fade-in-up');
+            observer.observe(element);
+        });
+    }
+
+    // Initialize observers after DOM is ready
+    setTimeout(initializeObservers, 100);
+
+    // Reinitialize on orientation change
+    window.addEventListener('orientationchange', () => {
+        setTimeout(initializeObservers, 100);
+    });
+});
+
+/**
+ * Analytics Configuration
+ * Sets up MixPanel and CrazyEgg tracking
+ */
+// Initialize MixPanel
+if (typeof mixpanel !== 'undefined') {
+    mixpanel.init("c92a5986631ed0a4b6c19404c128f2b0", {
+        ignore_dnt: true,
+        debug: true,
+        track_pageview: true
+    });
+
+    // Configure MixPanel event tracking
+    const trackingEvents = {
+        'button.js-getit-link': 'Email Click from Get It Done Section',
+        'button.icon-plus': 'Email Click from Plus Icon', 
+        'a.js-getintouch': 'Email Click from Large Get in Touch',
+        'a.js-phone-link': 'Phone Number Click',
+        'a.js-twitter-link': 'Twitter Visit',
+        'a.js-aboutquinn-link': 'Email from About Quinn Section'
+    };
+
+    // Set up tracking for each event
+    Object.entries(trackingEvents).forEach(([selector, event]) => {
+        mixpanel.track_links(selector, event);
+    });
+}
+
+// Initialize CrazyEgg analytics
+setTimeout(function(){
+    const script = document.createElement("script");
+    const firstScript = document.getElementsByTagName("script")[0];
+    script.src = document.location.protocol + "//script.crazyegg.com/pages/scripts/0014/8176.js?" + 
+                 Math.floor(new Date().getTime()/3600000);
+    script.async = true;
+    script.type = "text/javascript";
+    firstScript.parentNode.insertBefore(script, firstScript);
+}, 1);
