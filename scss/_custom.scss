@@ -557,3 +557,32 @@ h3 {
   }
 
 }
+
+.faq-item {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 15px;
+}
+
+.faq-question {
+  font-size: 1.4rem;
+  color: black;
+  margin: 0;
+  cursor: pointer;
+  display: block;
+}
+
+.faq-answer {
+  display: none; /* Initially hide answers */
+  margin-top: 10px;
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+/* Optional: Add hover effect for questions */
+.faq-question:hover {
+  text-decoration: underline;
+}
+ul {
+  margin-bottom: 30px;
+}

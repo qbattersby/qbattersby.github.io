@@ -1,0 +1,124 @@
+/* app-new.css - Alternative design for improved conversion and modern aesthetics */
+
+:root {
+  --primary-color: #f04e30; /* Vibrant accent for CTAs */
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --font-family: 'Helvetica Neue', sans-serif;
+  --heading-font: 'Montserrat', sans-serif;
+}
+
+body {
+  font-family: var(--font-family);
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+  background: var(--background-color);
+  line-height: 1.6;
+}
+
+header, .hero {
+  background: url("../img/hero-bg.jpg") no-repeat center center/cover;
+  text-align: center;
+  padding: 100px 20px;
+  color: var(--background-color);
+}
+
+.hero h1 {
+  font-family: var(--heading-font);
+  font-size: 4rem;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+  font-size: 1.5rem;
+  margin-top: 20px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: var(--background-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav a {
+  color: var(--text-color);
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.cta-button, .primary-cta {
+  background: var(--primary-color);
+  color: var(--background-color);
+  padding: 15px 25px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+.cta-button:hover, .primary-cta:hover {
+  background: #d94327;
+  transform: scale(1.05);
+}
+
+.testimonials {
+  background: var(--primary-color);
+  color: var(--background-color);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.testimonials blockquote {
+  font-size: 1.5rem;
+  margin: auto;
+  max-width: 800px;
+  font-style: italic;
+}
+
+.testimonials cite {
+  display: block;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.footer {
+  background: #f7f7f7;
+  padding: 40px 20px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* Conversion-focused enhancements */
+button, .button {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+button:hover, .button:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+} 
