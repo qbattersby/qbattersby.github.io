@@ -6,9 +6,17 @@
 /**
  * Updates canvas dimensions to match viewport and content size
  */
+let isUpdatingCanvas = false;
+
 function updateCanvasSize() {
+    if (isUpdatingCanvas) return;
+    isUpdatingCanvas = true;
+
     const canvas = document.getElementById('box');
-    if (!canvas) return;
+    if (!canvas) {
+        isUpdatingCanvas = false;
+        return;
+    }
 
     // Force a reflow to get accurate dimensions
     document.body.offsetHeight;
@@ -23,8 +31,12 @@ function updateCanvasSize() {
         containerHeight + 400 // Increased padding for better coverage
     );
 
-    // Trigger a resize event to ensure fluid background adjusts
-    window.dispatchEvent(new Event('resize'));
+    // Update the fluid background if it exists
+    if (window.fluidBg && typeof window.fluidBg.resize === 'function') {
+        window.fluidBg.resize();
+    }
+
+    isUpdatingCanvas = false;
 }
 
 // Initialize fluid background animation
@@ -40,16 +52,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Set up event listeners for size updates
         window.addEventListener('load', () => {
-            // Update size after all resources are loaded
             updateCanvasSize();
             
             // Additional checks after load
-            setTimeout(updateCanvasSize, 100);
-            setTimeout(updateCanvasSize, 500);
-            setTimeout(updateCanvasSize, 1000);
+            [100, 500, 1000].forEach(delay => {
+                setTimeout(updateCanvasSize, delay);
+            });
         });
 
-        window.addEventListener('resize', updateCanvasSize);
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(updateCanvasSize, 100);
+        });
 
         // Configure and initialize fluid background
         const bg = new Color4Bg.AestheticFluidBg({
@@ -62,6 +77,9 @@ document.addEventListener('DOMContentLoaded', function() {
             noise: 35,
             animate: true
         });
+
+        // Store reference for resize handling
+        window.fluidBg = bg;
 
         // Start animation loop
         function animate() {
@@ -154,28 +172,55 @@ $(document).ready(function() {
  * Analytics Configuration
  * Sets up MixPanel and CrazyEgg tracking
  */
-// Initialize MixPanel
+// Initialize MixPanel with storage access check
 if (typeof mixpanel !== 'undefined') {
-    mixpanel.init("c92a5986631ed0a4b6c19404c128f2b0", {
-        ignore_dnt: true,
-        debug: true,
-        track_pageview: true
-    });
+    try {
+        mixpanel.init("c92a5986631ed0a4b6c19404c128f2b0", {
+            ignore_dnt: true,
+            debug: false,
+            track_pageview: true,
+            persistence: 'cookie',  // Use cookies instead of localStorage
+            cookie_expiration: 1,  // Set cookie expiration to 1 day
+            cookie_domain: '',  // Current domain only
+            api_transport: 'XHR',
+            cross_site_cookie: false,
+            cross_subdomain_cookie: false,
+            secure_cookie: true,
+            ip: false,  // Don't track IP addresses
+            property_blacklist: ['$initial_referrer', '$initial_referring_domain']  // Minimize stored data
+        });
 
-    // Configure MixPanel event tracking
-    const trackingEvents = {
-        'button.js-getit-link': 'Email Click from Get It Done Section',
-        'button.icon-plus': 'Email Click from Plus Icon', 
-        'a.js-getintouch': 'Email Click from Large Get in Touch',
-        'a.js-phone-link': 'Phone Number Click',
-        'a.js-twitter-link': 'Twitter Visit',
-        'a.js-aboutquinn-link': 'Email from About Quinn Section'
-    };
+        // Configure MixPanel event tracking
+        const trackingEvents = {
+            'a.js-getit-link': 'Email Click from Get It Done Section',
+            'a.icon-plus': 'Email Click from Plus Icon', 
+            'a.js-getintouch': 'Email Click from Large Get in Touch',
+            'a.js-phone-link': 'Phone Number Click',
+            'a.js-twitter-link': 'Twitter Visit',
+            'a.js-aboutquinn-link': 'Email from About Quinn Section'
+        };
 
-    // Set up tracking for each event
-    Object.entries(trackingEvents).forEach(([selector, event]) => {
-        mixpanel.track_links(selector, event);
-    });
+        // Set up tracking for each event with error handling
+        Object.entries(trackingEvents).forEach(([selector, event]) => {
+            try {
+                mixpanel.track_links(selector, event);
+            } catch (e) {
+                console.warn(`Failed to set up tracking for ${selector}:`, e);
+            }
+        });
+
+        // Track page load after initialization
+        try {
+            mixpanel.track("Page View", {
+                path: window.location.pathname,
+                url: window.location.href
+            });
+        } catch (e) {
+            console.warn('Failed to track page view:', e);
+        }
+    } catch (error) {
+        console.warn('MixPanel initialization failed:', error);
+    }
 }
 
 // Initialize CrazyEgg analytics
