@@ -3,6 +3,10 @@
  * Handles background animation, analytics tracking, and UI interactions
  */
 
+// Contact information encoding
+const encodedEmail = 'cXVpbm5AYmF0dGVyc2J5LmNh'; // quinn@battersby.ca
+const encodedPhone = 'MjI2LTMzOC0xNjU5'; // 226-338-1659
+
 /**
  * Updates canvas dimensions to match viewport and content size
  */
@@ -39,9 +43,52 @@ function updateCanvasSize() {
     isUpdatingCanvas = false;
 }
 
-// Initialize fluid background animation
+/**
+ * Decodes an encoded string using base64
+ */
+function decodeString(encoded) {
+    try {
+        return atob(encoded);
+    } catch (e) {
+        console.warn('Failed to decode string:', e);
+        return encoded;
+    }
+}
+
+/**
+ * Updates the contact information on the page
+ */
+function updateContactInfo() {
+    try {
+        const decodedEmail = decodeString(encodedEmail);
+        const decodedPhone = decodeString(encodedPhone);
+
+        // Update contact form email
+        const contactForm = document.querySelector('form[action="#"]');
+        if (contactForm) {
+            contactForm.action = `https://formsubmit.co/${decodedEmail}`;
+        }
+        
+        // Update email links and text
+        document.querySelectorAll('a.js-aboutquinn-link').forEach(link => {
+            link.href = `mailto:${decodedEmail}`;
+            link.textContent = decodedEmail;
+        });
+        
+        // Update phone links and text
+        document.querySelectorAll('a.js-phone-link').forEach(link => {
+            link.href = `tel:${decodedPhone}`;
+            link.textContent = decodedPhone;
+        });
+    } catch (e) {
+        console.warn('Failed to update contact info:', e);
+    }
+}
+
+// Initialize everything when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
     try {
+        // Initialize background
         const canvas = document.getElementById('box');
         if (!canvas) {
             throw new Error('Canvas element not found');
@@ -49,30 +96,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Initial size setup
         updateCanvasSize();
-
-        // Set up event listeners for size updates
-        window.addEventListener('load', () => {
-            updateCanvasSize();
-            
-            // Additional checks after load
-            [100, 500, 1000].forEach(delay => {
-                setTimeout(updateCanvasSize, delay);
-            });
-
-            // Reveal white container after background animation
-            setTimeout(() => {
-                const whiteContainer = document.querySelector('.white-container');
-                if (whiteContainer) {
-                    whiteContainer.classList.add('is-visible');
-                }
-            }, 2000); // 2 second delay before showing the container
-        });
-
-        let resizeTimeout;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(updateCanvasSize, 100);
-        });
 
         // Configure and initialize fluid background
         const bg = new Color4Bg.AestheticFluidBg({
@@ -96,6 +119,30 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         animate();
 
+        // Set up event listeners
+        window.addEventListener('load', () => {
+            updateCanvasSize();
+            
+            // Additional size checks after load
+            [100, 500, 1000].forEach(delay => {
+                setTimeout(updateCanvasSize, delay);
+            });
+
+            // Reveal white container after background animation
+            setTimeout(() => {
+                const whiteContainer = document.querySelector('.white-container');
+                if (whiteContainer) {
+                    whiteContainer.classList.add('is-visible');
+                }
+            }, 2000);
+        });
+
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(updateCanvasSize, 100);
+        });
+
         // Update canvas when accordion state changes
         $('.accordion').on('down.zf.accordion up.zf.accordion', function() {
             setTimeout(updateCanvasSize, 300);
@@ -106,9 +153,12 @@ document.addEventListener('DOMContentLoaded', function() {
             updateCanvasSize();
         });
 
-        console.log('Background initialized and animating');
+        // Update contact information
+        updateContactInfo();
+
+        console.log('Site initialized successfully');
     } catch (error) {
-        console.error('Error initializing background:', error);
+        console.error('Error during initialization:', error);
     }
 });
 
