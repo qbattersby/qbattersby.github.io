@@ -128,13 +128,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 setTimeout(updateCanvasSize, delay);
             });
 
-            // Reveal white container after background animation
-            setTimeout(() => {
-                const whiteContainer = document.querySelector('.white-container');
-                if (whiteContainer) {
+            // Show white container immediately
+            const whiteContainer = document.querySelector('.white-container');
+            if (whiteContainer) {
+                requestAnimationFrame(() => {
                     whiteContainer.classList.add('is-visible');
-                }
-            }, 2000);
+                });
+            }
         });
 
         let resizeTimeout;
