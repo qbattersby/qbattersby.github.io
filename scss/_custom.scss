@@ -24,6 +24,17 @@ html.js {
     transition: opacity 0.1s ease-in;
 }
 
+// Background canvas
+#box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: #2d5283;
+}
+
 // Optimize modal display
 .reveal {
     backface-visibility: hidden;
