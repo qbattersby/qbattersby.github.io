@@ -573,6 +573,9 @@ h3 {
     font-size:3rem;
     line-height: 1;
   }
+  @include breakpoint(small down){
+    padding: 20px;
+  }
 }
 
 .button {

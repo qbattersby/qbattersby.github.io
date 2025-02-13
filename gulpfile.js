@@ -2,6 +2,7 @@ const gulp         = require('gulp');
 const sass         = require('gulp-sass')(require('sass-embedded'));
 const browserSync  = require('browser-sync').create();
 const sourcemaps   = require('gulp-sourcemaps');
+const tinypng      = require('gulp-tinypng-compress');
 
 const includePaths = [
     'node_modules/foundation-sites/scss',
@@ -19,12 +20,26 @@ function sassBuild() {
         .pipe(gulp.dest('css'));
 };
 
+function imageOptimize() {
+    return gulp.src('img/**/*.{png,jpg,jpeg}')
+        .pipe(tinypng({
+            key: 'JK8KmxRTPp8M9DbxkDNcBPJbt3ZR2rr7',
+            sigFile: 'img/.tinypng-sigs',
+            log: true,
+            summarize: true
+        }))
+        .pipe(gulp.dest('img'));
+}
+
 function serve() {
     browserSync.init({server : "./"});
     gulp.watch("scss/*.scss", sassBuild);
     gulp.watch("*.html").on('change', browserSync.reload);
+    // Watch for new images
+    gulp.watch("img/**/*.{png,jpg,jpeg}", imageOptimize);
 }
 
 gulp.task('sass', sassBuild);
+gulp.task('images', imageOptimize);
 gulp.task('serve', gulp.series('sass', serve));
-gulp.task('default', gulp.series('sass', serve));
+gulp.task('default', gulp.series('sass', 'images', serve));
