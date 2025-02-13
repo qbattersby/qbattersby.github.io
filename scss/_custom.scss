@@ -1,10 +1,91 @@
+// Critical render path styles
+:root {
+    color-scheme: light;
+}
+
 html {
-  // background: $primary;
-  // background-image:url(../img/new-bg.webp);
-  // background-position: center;
-  // background-size:cover;
-  // background-attachment: fixed;
-  scroll-behavior: smooth;
+    // background: $primary;
+    // background-image:url(../img/new-bg.webp);
+    // background-position: center;
+    // background-size:cover;
+    // background-attachment: fixed;
+    scroll-behavior: smooth;
+    opacity: 1;
+    visibility: visible;
+}
+
+// Prevent FOUC
+.no-js {
+    opacity: 0;
+}
+
+html.js {
+    opacity: 1;
+    transition: opacity 0.1s ease-in;
+}
+
+// Optimize modal display
+.reveal {
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+    contain: layout style paint;
+    
+    &[aria-hidden="true"] {
+        display: none;
+    }
+    
+    &[aria-hidden="false"] {
+        display: block;
+    }
+}
+
+// Optimize white container performance
+.white-container {
+    position: relative;
+    background: white;
+    padding-top: clamp(80px, 10vw, 160px);
+    padding-bottom: clamp(60px, 8vw, 120px);
+    max-width: 1300px;
+    width: 90%;
+    padding-left: clamp(15px, 4vw, 80px);
+    padding-right: clamp(15px, 4vw, 80px);
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform;
+    contain: layout style paint;
+    backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
+
+    &.is-visible {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+
+    @include breakpoint(xlarge down) {
+        padding-top: 100px;
+        padding-bottom: 80px;
+    }
+    @include breakpoint(large down) {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    @include breakpoint(small down) {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding-left: 15px;
+        padding-right: 15px;
+        width: 90%;
+    }
+}
+
+// Optimize image loading
+img {
+    content-visibility: auto;
+    contain: layout style paint;
 }
 
 a {
@@ -100,46 +181,6 @@ p {
 
 .primary-color {
   color: $primary;
-}
-
-.white-container {
-  position: relative;
-  background: white;
-  padding-top: clamp(80px, 10vw, 160px);
-  padding-bottom: clamp(60px, 8vw, 120px);
-  max-width: 1300px;
-  width: 90%;
-  padding-left: clamp(15px, 4vw, 80px);
-  padding-right: clamp(15px, 4vw, 80px);
-  margin-left: auto;
-  margin-right: auto;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: opacity, transform;
-  contain: layout style paint;
-
-  &.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  @include breakpoint(xlarge down) {
-    padding-top: 100px;
-    padding-bottom: 80px;
-  }
-  @include breakpoint(large down) {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-  @include breakpoint(small down) {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding-left: 15px;
-    padding-right: 15px;
-    width: 90%;
-  }
 }
 
 .mega {

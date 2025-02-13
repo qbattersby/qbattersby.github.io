@@ -37,7 +37,24 @@
 
     <!-- Critical CSS -->
     <style>
-        /* Inline critical CSS */
+        /* Add reveal modal styles to prevent FOUC */
+        .reveal {
+            display: none;
+            z-index: 1006;
+            padding: 1rem;
+            border: 1px solid #cacaca;
+            background-color: #fefefe;
+            border-radius: 0;
+            position: relative;
+            flex-shrink: 0;
+            max-height: 100vh;
+            margin: 1.5rem auto;
+            overflow-y: auto;
+        }
+        .reveal.is-active {
+            display: block;
+        }
+        /* Existing critical CSS... */
         .white-container {
             position: relative;
             z-index: 1;
@@ -86,12 +103,11 @@
         }
     </style>
 
-    <!-- Preload critical assets -->
-    <link rel="preload" href="img/megaphone-blue.png" as="image" type="image/png" fetchpriority="high">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" as="style">
-    <link rel="preload" href="js/AestheticFluidBg.min.js" as="script">
-    
-    <!-- Defer non-critical CSS -->
+    <!-- Module preload for performance -->
+    <link rel="modulepreload" href="js/AestheticFluidBg.min.js">
+    <link rel="modulepreload" href="js/app.js">
+
+    <!-- Defer all non-critical CSS -->
     <link rel="stylesheet" href="css/app.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="css/app.css"></noscript>
 
@@ -624,13 +640,9 @@
 </div>
 
 <!-- Scripts -->
-<script src="js/jquery.js" defer></script>
-<script src="js/foundation.js" defer></script>
-<script src="js/jquery.fittext.js" defer></script>
-<script src="js/AestheticFluidBg.min.js"></script>
-<script>
-    // Initialize background after page load
-    window.addEventListener('load', function() {
+<script type="module">
+    // Initialize only what's needed immediately
+    document.addEventListener('DOMContentLoaded', () => {
         // Show white container immediately
         const whiteContainer = document.querySelector('.white-container');
         if (whiteContainer) {
@@ -638,37 +650,93 @@
                 whiteContainer.classList.add('is-visible');
             });
         }
+    });
 
-        // Initialize AestheticFluidBg
+    // Defer non-critical initializations
+    window.addEventListener('load', async () => {
+        // Dynamic imports for better code splitting
+        const [
+            { default: $ },
+            { default: Foundation }
+        ] = await Promise.all([
+            import('./js/jquery.js'),
+            import('./js/foundation.js')
+        ]);
+
+        // Initialize Foundation components only when needed
+        $(document).foundation();
+
+        // Initialize fluid background
         if (typeof AestheticFluidBg !== 'undefined') {
-            new AestheticFluidBg('box');
+            const bg = new AestheticFluidBg({
+                canvas: document.getElementById('box'),
+                colors: ["#2d5283", "#000000", "#2d5283", "#000000", "#2d5283", "#00000e"],
+                loop: true,
+                seed: 64783,
+                speed: 0.5,
+                scale: 1.2,
+                noise: 35,
+                animate: true
+            });
+            
+            requestAnimationFrame(function animate() {
+                bg.update();
+                requestAnimationFrame(animate);
+            });
+        }
+
+        // Lazy load remaining scripts
+        const scripts = [
+            'js/jquery.fittext.js'
+        ];
+
+        await Promise.all(
+            scripts.map(src => {
+                return new Promise((resolve, reject) => {
+                    const script = document.createElement('script');
+                    script.src = src;
+                    script.onload = resolve;
+                    script.onerror = reject;
+                    document.body.appendChild(script);
+                });
+            })
+        );
+
+        // Initialize FitText only after load
+        if (typeof jQuery.fn.fitText === 'function') {
+            jQuery('.mega').fitText(0.28);
+            jQuery('.submega').fitText(0.34);
         }
     });
 </script>
 
-<!-- Defer non-critical scripts -->
-<script src="js/app.js" defer></script>
-
-<!-- Analytics Scripts - Load async -->
+<!-- Analytics - Load with low priority -->
 <script async src="https://www.google-analytics.com/analytics.js"></script>
 <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-12843625-1', 'auto');
-    ga('send', 'pageview');
+    // Defer analytics initialization
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+            ga('create', 'UA-12843625-1', 'auto');
+            ga('send', 'pageview');
+        }, 1000);
+    });
 </script>
 
-<!-- Mixpanel - Load async -->
+<!-- Mixpanel - Load with low priority -->
 <script async src="https://cdn.mxpnl.com/libs/mixpanel-2.2.min.js"></script>
 <script>
-    // Initialize Mixpanel after load
-    window.addEventListener('load', function() {
-        if (typeof mixpanel !== 'undefined') {
-            mixpanel.init("c92a5986631ed0a4b6c19404c128f2b0", {
-                debug: false,
-                track_pageview: true
-            });
-            mixpanel.track("Homepage Loaded");
-        }
+    // Defer Mixpanel initialization
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            if (typeof mixpanel !== 'undefined') {
+                mixpanel.init("c92a5986631ed0a4b6c19404c128f2b0", {
+                    debug: false,
+                    track_pageview: true
+                });
+                mixpanel.track("Homepage Loaded");
+            }
+        }, 1500);
     });
 </script>
 
