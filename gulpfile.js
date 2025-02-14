@@ -1,3 +1,4 @@
+require('dotenv').config();
 const gulp         = require('gulp');
 const sass         = require('gulp-sass')(require('sass-embedded'));
 const browserSync  = require('browser-sync').create();
@@ -23,7 +24,7 @@ function sassBuild() {
 function imageOptimize() {
     return gulp.src('img/**/*.{png,jpg,jpeg}')
         .pipe(tinypng({
-            key: 'JK8KmxRTPp8M9DbxkDNcBPJbt3ZR2rr7',
+            key: process.env.TINYPNG_API_KEY,
             sigFile: 'img/.tinypng-sigs',
             log: true,
             summarize: true

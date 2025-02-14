@@ -17,6 +17,7 @@
     "node": ">=18.0"
   },
   "dependencies": {
+    "dotenv": "^16.4.7",
     "foundation-sites": "latest",
     "jquery": ">=3.6.0",
     "motion-ui": "latest",
@@ -25,7 +26,7 @@
   "devDependencies": {
     "autoprefixer": "^10.4.15",
     "browser-sync": "^2.29.3",
-    "gulp": "^4.0.0",
+    "gulp": "^4.0.2",
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^10.0.0",
     "gulp-sass": "^5.1.0",

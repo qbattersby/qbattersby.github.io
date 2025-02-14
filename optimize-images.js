@@ -1,9 +1,10 @@
+require('dotenv').config();
 const tinify = require("tinify");
 const fs = require("fs");
 const path = require("path");
 
-// Set your API key
-tinify.key = "JK8KmxRTPp8M9DbxkDNcBPJbt3ZR2rr7";
+// Set API key from environment variable
+tinify.key = process.env.TINYPNG_API_KEY;
 
 // Directory containing images
 const imgDir = "img";
@@ -45,4 +46,4 @@ async function optimizeImages() {
     console.log(`\nDone! You have ${500 - remaining} compressions remaining this month.`);
 }
 
-optimizeImages().catch(console.error); 
+optimizeImages().catch(console.error);
