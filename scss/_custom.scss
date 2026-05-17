@@ -1037,6 +1037,36 @@ a {
   }
 }
 
+.hero-proof {
+  border-top: 1px solid rgba($primary, 0.18);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  list-style: none;
+  margin: 28px 0 0;
+  padding: 20px 0 0;
+
+  li {
+    color: rgba($black, 0.72);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.35;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  @include breakpoint(small down) {
+    display: block;
+    margin-top: 22px;
+
+    li {
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+  }
+}
+
 .compact-section {
   margin-top: 110px;
   margin-bottom: 125px;
