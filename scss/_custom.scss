@@ -304,9 +304,7 @@ h3 {
   width: 65%;
   height: auto;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: -8vw;
+  margin: -4vw auto 0;
   animation: float 8s ease-in-out infinite;
   transform: translatey(0px);
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1)) 
