@@ -378,8 +378,8 @@ h3 {
 .icon-screen {
   position: absolute;
   bottom: 10px;
-  right: -120px;
-  width: 150px;
+  right: -360px;
+  width: 300px;
   filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
   
   @include breakpoint(small down) {

@@ -63,7 +63,7 @@ function updateContactInfo() {
         const decodedEmail = decodeString(encodedEmail);
         const decodedPhone = decodeString(encodedPhone);
 
-        // Contact form posts to server.battersby.ca/api/contact.php from static HTML.
+        // Contact form posts to Web3Forms from static HTML.
         // Keep email links obfuscated, but do not rewrite the form action here.
         
         // Update email links and text

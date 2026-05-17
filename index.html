@@ -245,10 +245,14 @@
 <!-- End Google Tag Manager -->
 
 <div class="reveal" id="contactForm" data-reveal>
-    <form action="https://server.battersby.ca/api/contact.php" method="POST">
+    <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="f55bed95-b2eb-4a11-b53b-a4e159281050">
+        <input type="hidden" name="subject" value="New website inquiry from qbattersby.com">
+        <input type="hidden" name="from_name" value="qbattersby.com Contact">
+        <input type="hidden" name="redirect" value="https://qbattersby.com/thank-you.html">
         <div class="form-honeypot" aria-hidden="true">
-            <label for="contact-website">Website</label>
-            <input id="contact-website" type="text" name="website" tabindex="-1" autocomplete="off">
+            <label for="contact-botcheck">Leave this field unchecked</label>
+            <input id="contact-botcheck" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off">
         </div>
 
         <div class="grid-container contact-form">
