@@ -122,6 +122,7 @@ a {
 body {
   background: transparent;
   font-size: 24px;
+  overflow-x: hidden;
   padding-top: 100px;
   padding-bottom: 100px;
   @include breakpoint(xlarge down){
@@ -201,6 +202,27 @@ p {
   font-size: clamp(2rem, 8vw, 4rem);
   margin-bottom: 2rem;
   contain: layout style paint;
+}
+
+.hero-title {
+  font-size: clamp(3rem, 7.2vw, 6.4rem);
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  line-height: 0.92;
+  margin-bottom: 2rem;
+  max-width: 1100px;
+
+  @include breakpoint(medium down) {
+    font-size: clamp(2.45rem, 10vw, 4.5rem);
+    line-height: 0.96;
+  }
+
+  @include breakpoint(small down) {
+    font-size: clamp(2.25rem, 11vw, 3.25rem);
+    letter-spacing: -0.045em;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+  }
 }
 
 .submega {
@@ -345,10 +367,7 @@ h3 {
   filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
   
   @include breakpoint(small down) {
-    bottom: auto;
-    top: -50px;
-    width: 85px;
-    right: -10px;
+    display: none;
   }
 }
 
@@ -653,14 +672,14 @@ h3 {
 .bolts {
   position:relative;
   @include breakpoint(large down){
-    width:40%;
+    width:36%;
     margin-left:auto;
-    margin-bottom:-60px;
+    margin-bottom:-40px;
   }
   @include breakpoint(small down){
-    width:30%;
+    width:24%;
     margin-left:auto;
-    margin-bottom:-30px;
+    margin-bottom:-20px;
   }
 }
 
@@ -963,4 +982,187 @@ a {
   width:90%;
   margin-left: auto;
   margin-right: auto;
+}
+
+// Lead-generation / local SEO refresh
+.eyebrow {
+  color: $primary;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+
+  @include breakpoint(small down) {
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+}
+
+.hero-actions,
+.cta-row {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: -15px 0 18px;
+
+  .button {
+    margin-bottom: 0;
+  }
+}
+
+.button.secondary {
+  background: white;
+  border: 2px solid $primary;
+  color: $primary;
+
+  &:hover,
+  &:focus {
+    background: $primary;
+    color: white;
+  }
+}
+
+.mini-note {
+  color: rgba($black, 0.78);
+  font-size: 18px;
+  line-height: 28px;
+  margin-bottom: 0;
+
+  @include breakpoint(small down) {
+    font-size: 15px;
+    line-height: 22px;
+  }
+}
+
+.compact-section {
+  margin-top: 110px;
+  margin-bottom: 125px;
+
+  @include breakpoint(small down) {
+    margin-top: 60px;
+    margin-bottom: 75px;
+  }
+}
+
+.service-grid,
+.location-grid {
+  display: grid;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.service-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  @include breakpoint(large down) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include breakpoint(small down) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 28px;
+  }
+}
+
+.location-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  @include breakpoint(small down) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 28px;
+  }
+}
+
+.service-card,
+.location-card,
+.pricing-callout {
+  background: rgba($primary, 0.07);
+  border: 1px solid rgba($primary, 0.16);
+  padding: 30px;
+
+  @include breakpoint(small down) {
+    padding: 22px;
+  }
+
+  h4 {
+    color: $primary;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 16px;
+
+    @include breakpoint(small down) {
+      font-size: 22px;
+    }
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 28px;
+    margin-bottom: 0;
+
+    @include breakpoint(small down) {
+      font-size: 15px;
+      line-height: 22px;
+    }
+  }
+}
+
+.location-card {
+  background: $primary;
+  color: white;
+
+  h4,
+  p {
+    color: white;
+  }
+}
+
+.pricing-callout {
+  background: linear-gradient(135deg, rgba($primary, 0.12), rgba($primary, 0.04));
+  border-left: 8px solid $primary;
+
+  h3 {
+    margin-bottom: 20px;
+  }
+
+  p:not(.eyebrow),
+  li {
+    font-size: 20px;
+    line-height: 30px;
+
+    @include breakpoint(small down) {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+}
+
+.proof-points {
+  list-style: none;
+  margin: 22px 0 34px;
+
+  li {
+    margin-bottom: 12px;
+    padding-left: 34px;
+    position: relative;
+
+    &::before {
+      color: $primary;
+      content: '✓';
+      font-weight: 700;
+      left: 0;
+      position: absolute;
+      top: 0;
+    }
+  }
+}
+
+.work-intro {
+  max-width: 860px;
 }
