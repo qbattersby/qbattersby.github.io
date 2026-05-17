@@ -63,11 +63,8 @@ function updateContactInfo() {
         const decodedEmail = decodeString(encodedEmail);
         const decodedPhone = decodeString(encodedPhone);
 
-        // Update contact form email
-        const contactForm = document.querySelector('form[action="#"]');
-        if (contactForm) {
-            contactForm.action = `https://formsubmit.co/${decodedEmail}`;
-        }
+        // Contact form posts to server.battersby.ca/api/contact.php from static HTML.
+        // Keep email links obfuscated, but do not rewrite the form action here.
         
         // Update email links and text
         document.querySelectorAll('a.js-aboutquinn-link').forEach(link => {
