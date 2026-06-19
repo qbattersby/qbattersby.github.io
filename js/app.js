@@ -4,7 +4,7 @@
  */
 
 // Contact information encoding
-const encodedEmail = 'cXVpbm5AYmF0dGVyc2J5LmNh'; // quinn@battersby.ca
+const encodedEmail = 'cXVpbm5AYmF0dGVyc2J5LmNh';
 const encodedPhone = 'MjI2LTMzOC0xNjU5'; // 226-338-1659
 
 /**
@@ -66,10 +66,9 @@ function updateContactInfo() {
         // Contact form posts to Web3Forms from static HTML.
         // Keep email links obfuscated, but do not rewrite the form action here.
         
-        // Update email links and text
-        document.querySelectorAll('a.js-aboutquinn-link').forEach(link => {
+        // Update legacy email links and text if this script is loaded.
+        document.querySelectorAll('a.js-aboutquinn-link, a[data-email-user][data-email-domain]').forEach(link => {
             link.href = `mailto:${decodedEmail}`;
-            link.textContent = decodedEmail;
         });
         
         // Update phone links and text
@@ -85,69 +84,67 @@ function updateContactInfo() {
 // Initialize everything when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
     try {
-        // Initialize background
+        // Initialize the legacy canvas background only when that canvas/plugin is present.
         const canvas = document.getElementById('box');
-        if (!canvas) {
-            throw new Error('Canvas element not found');
-        }
+        const canUseLegacyCanvas = canvas && window.Color4Bg && window.Color4Bg.AestheticFluidBg;
 
-        // Initial size setup
-        updateCanvasSize();
-
-        // Configure and initialize fluid background
-        const bg = new Color4Bg.AestheticFluidBg({
-            canvas: canvas,
-            colors: ["#2d5283", "#000000", "#2d5283", "#000000", "#2d5283", "#00000e"],
-            loop: true,
-            seed: 64783,
-            speed: 0.5,
-            scale: 1.2,
-            noise: 35,
-            animate: true
-        });
-
-        // Store reference for resize handling
-        window.fluidBg = bg;
-
-        // Start animation loop
-        function animate() {
-            bg.update();
-            requestAnimationFrame(animate);
-        }
-        animate();
-
-        // Set up event listeners
-        window.addEventListener('load', () => {
+        if (canUseLegacyCanvas) {
+            // Initial size setup
             updateCanvasSize();
-            
-            // Additional size checks after load
-            [100, 500, 1000].forEach(delay => {
-                setTimeout(updateCanvasSize, delay);
+
+            // Configure and initialize fluid background
+            const bg = new window.Color4Bg.AestheticFluidBg({
+                canvas: canvas,
+                colors: ["#2d5283", "#000000", "#2d5283", "#000000", "#2d5283", "#00000e"],
+                loop: true,
+                seed: 64783,
+                speed: 0.5,
+                scale: 1.2,
+                noise: 35,
+                animate: true
             });
 
-            // Show white container immediately
+            // Store reference for resize handling
+            window.fluidBg = bg;
+
+            // Start animation loop
+            function animate() {
+                bg.update();
+                requestAnimationFrame(animate);
+            }
+            animate();
+
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(updateCanvasSize, 100);
+            });
+
+            // Update canvas when accordion state changes
+            $('.accordion').on('down.zf.accordion up.zf.accordion', function() {
+                setTimeout(updateCanvasSize, 300);
+            });
+
+            // Update size when Foundation is initialized
+            $(document).on('initialized.zf', function() {
+                updateCanvasSize();
+            });
+        }
+
+        window.addEventListener('load', () => {
+            if (canUseLegacyCanvas) {
+                updateCanvasSize();
+                [100, 500, 1000].forEach(delay => {
+                    setTimeout(updateCanvasSize, delay);
+                });
+            }
+
             const whiteContainer = document.querySelector('.white-container');
             if (whiteContainer) {
                 requestAnimationFrame(() => {
                     whiteContainer.classList.add('is-visible');
                 });
             }
-        });
-
-        let resizeTimeout;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(updateCanvasSize, 100);
-        });
-
-        // Update canvas when accordion state changes
-        $('.accordion').on('down.zf.accordion up.zf.accordion', function() {
-            setTimeout(updateCanvasSize, 300);
-        });
-
-        // Update size when Foundation is initialized
-        $(document).on('initialized.zf', function() {
-            updateCanvasSize();
         });
 
         // Update contact information
