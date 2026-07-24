@@ -1047,6 +1047,27 @@ ul {
   }
 }
 
+.js .portfolio-grid > .cell:nth-child(n + 7):not(.is-visible) {
+  display: none;
+}
+
+.work-load-more {
+  margin-top: 0.5rem;
+  text-align: center;
+
+  .button {
+    margin-bottom: 0;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+}
+
+.no-js .work-load-more {
+  display: none;
+}
+
 .button.hollow.white {
   border: 2px solid rgba(255, 255, 255, 0.9);
   color: white;

@@ -2,6 +2,9 @@
 <html class="no-js" lang="en">
 <head>
     <meta charset="utf-8">
+    <script>
+        document.documentElement.classList.replace('no-js', 'js');
+    </script>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Senior freelance WordPress developer building custom themes, fast websites, and reliable support for Kitchener-Waterloo and Norfolk County businesses. Websites start at $2,000 + HST; free consultation.">
@@ -26,7 +29,7 @@
 
     <!-- Preload critical assets -->
     <link rel="preload" href="img/megaphone-blue.png" as="image" type="image/png" fetchpriority="high">
-    <link rel="stylesheet" href="css/app.css?v=20260619">
+    <link rel="stylesheet" href="css/app.css?v=20260724">
     <link rel="preload" href="/js/blue-background.js" as="script">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" as="style">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap">
@@ -354,7 +357,7 @@
                 </div>
                 <p class="mini-note">Websites start at <strong>$2,000 + HST</strong>. Practical, senior development with a polished handoff.</p>
                 <ul class="hero-proof" aria-label="Credibility highlights">
-                    <li>14+ years building for the web</li>
+                    <li>16+ years building for the web</li>
                     <li>Conestoga College instructor</li>
                     <li>Goosechase co-founder</li>
                 </ul>
@@ -433,7 +436,7 @@
                         <p>Local web design &amp; development for Simcoe, Delhi, Tillsonburg, Port Dover, Waterford, and Norfolk County businesses that need a professional site, clear messaging, and a WordPress setup they can actually manage.</p>
                     </div>
                 </div>
-                <p class="area-links-intro">Looking for a web developer and designer in a specific community? I have dedicated pages for each area I serve:</p>
+                <p class="area-links-intro">Looking for a web developer and designer in a specific community? I have server Kitchener, Waterloo, Cambridge, and Norfolk County:</p>
                 <ul class="area-links">
                     <li><a href="kitchener-web-developer/">Kitchener Web Developer</a></li>
                     <li><a href="waterloo-web-developer/">Waterloo Web Developer</a></li>
@@ -475,7 +478,7 @@
                     <p class="work-intro">A sample of custom WordPress, front-end, and digital experience work for agencies, public-sector organizations, nonprofits, startups, and established brands.</p>
                 </div>
             </div>
-            <div class="grid-x grid-padding-x portfolio-grid" data-aos="fade-up" data-aos-duration="1000">
+            <div id="selected-work-grid" class="grid-x grid-padding-x portfolio-grid" data-aos="fade-up" data-aos-duration="1000">
                 <div class="cell large-6 medium-6 small-12">
                     <div class="work-item">
                         <picture>
@@ -907,6 +910,17 @@
                     </div>
                 </div>
             </div>
+            <div class="work-load-more">
+                <button
+                    class="button primary"
+                    type="button"
+                    aria-controls="selected-work-grid"
+                    aria-expanded="false"
+                    data-load-more-work>
+                    Load 6 more
+                </button>
+                <p class="show-for-sr" aria-live="polite" data-load-more-status></p>
+            </div>
         </section>
 
         <section class="grid-margin-x grid-x align-center">
@@ -922,11 +936,17 @@
         <section class="grid-margin-x grid-x align-center">
             <div class="cell large-9">
                 <h2><a href="#" class="toggle-contact js-getintouch" data-open="contactForm">Get in Touch</a></h2>
-                <p>If you need a custom WordPress developer in Kitchener-Waterloo, Norfolk County, or anywhere in Ontario, start with a free consultation. Call <a href="tel:226-338-1659" class="js-phone-link">226-338-1659</a> or send a message through the contact form.</p>
+                <p>If you need a custom WordPress developer in Kitchener-Waterloo, Norfolk County, or anywhere in Ontario, start with a free consultation. Call <a href="tel:226-338-1659" class="js-phone-link">226-338-1659</a> or send a message.
+                <br><br>
+                    <button class="button primary toggle-contact" data-open="contactForm">Start with a Free Consultation</button>
+
+                </p>
+
+               
                 <p>
                     <strong>My Story:</strong> I'm a senior web developer, entrepreneur, husband, and father of three based in Delhi, Ontario. I care about clear communication, strong execution, and websites that keep working after launch.
                 </p>
-                <p>With over 14 years of experience, I co-founded <a href="https://www.goosechase.com/" target="_blank" rel="noopener">Goosechase</a>, teach at Conestoga College, and build custom WordPress themes and web experiences for businesses, agencies, and organizations.</p>
+                <p>With over 16 years of experience, I co-founded <a href="https://www.goosechase.com/" target="_blank" rel="noopener">Goosechase</a>, teach at Conestoga College, and build custom WordPress themes and web experiences for businesses, agencies, and organizations.</p>
             </div>
         </section>
 
@@ -1019,6 +1039,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/FitText.js/1.2.0/jquery.fittext.min.js"></script>
 <script src="/js/contact-links.js" defer></script>
 <script src="/js/blue-background.js" defer></script>
+<script src="/js/portfolio-load-more.js" defer></script>
 
 <!-- Mixpanel - Load with low priority -->
 <script>
