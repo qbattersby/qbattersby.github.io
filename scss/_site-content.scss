@@ -1,0 +1,316 @@
+// New content uses the established theme in _custom.scss and _homepage-studio.scss.
+// Keep server-rendered content visible without the former reveal-on-scroll script.
+.no-js { opacity: 1; }
+
+.marketing-shell {
+  opacity: 1;
+  transform: none;
+
+  section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+
+  a:focus-visible,
+  summary:focus-visible {
+    outline: 3px solid rgba($primary, 0.28);
+    outline-offset: 3px;
+  }
+
+  // New section titles use h2 semantically, at the original section h3 size.
+  // The portfolio and closing contact headings retain their established h2 styles.
+  h2:where(:not(.work-heading):not(.contact-heading)) {
+    font-size: clamp(1.875rem, calc(1.5625rem + 1.5625vw), 4.0625rem);
+    line-height: 1.1;
+    letter-spacing: normal;
+    margin-bottom: 30px;
+
+    @include breakpoint(large down) { margin-bottom: 15px; }
+    @include breakpoint(small down) { font-size: 30px; line-height: 40px; }
+  }
+
+  .senior-care h2 {
+    font-size: clamp(1.75rem, calc(1.25rem + 0.78125vw), 2.5rem);
+    line-height: 1.2;
+    margin-bottom: 24px;
+    max-width: 720px;
+  }
+}
+
+.skip-link {
+  background: white;
+  color: $primary;
+  left: 20px;
+  padding: 14px 20px;
+  position: absolute;
+  top: 12px;
+  transform: translateY(-160%);
+  z-index: 1005;
+
+  &:focus { transform: none; }
+}
+
+// Match the existing .eyebrow treatment on pages using the semantic alias.
+.page-eyebrow {
+  color: $primary;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+
+  @include breakpoint(small down) { font-size: 13px; margin-bottom: 12px; }
+}
+
+.homepage-intro .hero-title { text-wrap: balance; }
+
+.offer-paths,
+.proof-grid {
+  display: grid;
+  gap: 24px;
+  margin-top: 40px;
+}
+.offer-paths { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.proof-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.proof-grid:has(> :nth-child(2):last-child) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+// The newer content cards share the original service-card palette and spacing.
+.offer-path,
+.proof-card {
+  background: rgba($primary, 0.07);
+  border: 1px solid rgba($primary, 0.16);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  position: relative;
+}
+.offer-path { padding: 30px; }
+.proof-card {
+  > a,
+  picture { display: block; }
+
+  img {
+    aspect-ratio: 16 / 9;
+    display: block;
+    height: auto;
+    object-fit: cover;
+    width: 100%;
+  }
+}
+.proof-card-content { display: flex; flex: 1; flex-direction: column; padding: 30px; }
+
+.offer-path,
+.proof-card,
+.process-list,
+.service-card,
+.location-card {
+  h3 {
+    color: $primary;
+    font-size: clamp(1.375rem, calc(1rem + 0.46875vw), 1.75rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+}
+.offer-path,
+.proof-card,
+.process-list {
+  p:not(.page-eyebrow) {
+    font-size: 18px;
+    line-height: 28px;
+    margin-bottom: 0;
+  }
+
+  p + p { margin-top: 18px; }
+  .clear-btn { font-size: 18px; line-height: 28px; margin-top: 22px; }
+}
+.offer-path .path-number { display: none; }
+.offer-path .page-eyebrow { margin-bottom: 18px; }
+.offer-path > .button { align-self: flex-start; margin: 24px 0 0; }
+.support-link { margin-top: 30px; }
+.proof-card .project-role { color: $primary; font-weight: 700; margin-bottom: 16px; }
+.offer-path .clear-btn,
+.proof-card-content .clear-btn { align-self: flex-start; max-width: 100%; }
+.proof-grid + p { margin-top: 30px; }
+
+.location-card {
+  h3,
+  .clear-btn { color: white; }
+
+  .clear-btn {
+    margin-top: 22px;
+
+    &:hover::after { background: white; }
+  }
+}
+
+.process-list {
+  display: grid;
+  gap: 40px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 40px 0 0 1.5em;
+  padding: 0;
+
+  li { padding-left: 8px; }
+  li::marker { color: $primary; font-weight: 700; }
+}
+.process-list:has(> li:nth-child(4):last-child) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+.local-note {
+  border-left: 3px solid $primary;
+  margin-top: 40px;
+  padding-left: 24px;
+
+  > :last-child { margin-bottom: 0; }
+}
+
+.pricing-callout > p:not(:last-child) { margin-bottom: 24px; }
+.about-copy { margin-top: 55px; }
+
+// Native details retain the look of the original Foundation accordion.
+.faq-section { margin-top: 2rem; }
+.faq-item {
+  background: transparent;
+  border: none;
+  margin-bottom: 1.5rem;
+
+  &:last-child { margin-bottom: 0; }
+
+  summary {
+    background: transparent;
+    color: $primary;
+    cursor: pointer;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.3;
+    list-style: none;
+    padding: 1rem 4rem 1rem 0;
+    position: relative;
+    transition: color 0.24s ease, padding-left 0.24s ease;
+
+    &::-webkit-details-marker { display: none; }
+
+    &::before {
+      color: $primary;
+      content: '+';
+      font-size: 42px;
+      line-height: 1;
+      position: absolute;
+      right: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      color: darken($primary, 10%);
+      padding-left: 0.3rem;
+    }
+  }
+
+  &[open] summary::before { transform: translateY(-50%) rotate(45deg); }
+
+  > div {
+    background: transparent;
+    color: $black;
+    font-size: 20px;
+    line-height: 1.6;
+    padding: 0 4rem 1.5rem 0;
+  }
+
+  @include breakpoint(medium down) {
+    summary { font-size: 24px; padding: 0.75rem 3.25rem 0.75rem 0; }
+    summary::before { font-size: 36px; }
+    > div { font-size: 18px; padding: 0 3.25rem 1rem 0; }
+  }
+
+  @include breakpoint(small down) {
+    summary { font-size: 20px; padding: 0.5rem 2.75rem 0.5rem 0; }
+    summary::before { font-size: 32px; }
+    > div { font-size: 16px; padding: 0 2.75rem 1rem 0; }
+  }
+}
+
+#contactForm {
+  margin-inline: auto;
+  max-height: calc(100dvh - 48px);
+  min-height: 0;
+  overflow-y: auto;
+  padding: 0;
+  width: min(760px, calc(100% - 32px));
+
+  .contact-form { padding: clamp(24px, 4vw, 44px); }
+  .contact-form h3 { font-size: clamp(30px, 3vw, 44px); line-height: 1.1; }
+  .contact-form p { font-size: 16px; line-height: 1.6; margin-bottom: 22px; }
+  .contact-form .page-eyebrow { color: $primary; font-size: 11px; font-weight: 700; letter-spacing: .075em; text-transform: uppercase; }
+  .contact-form label { font-size: 13px; font-weight: 600; line-height: 1.5; }
+  label span { font-weight: 400; }
+  textarea.message-box { height: 125px; min-height: 125px; }
+  .contact-form .form-note { font-size: 13px; line-height: 1.6; }
+  .button { line-height: 1.4; min-height: 48px; }
+  [data-enquiry-status] { background: #e6ecf4; color: #244975; font-size: 15px; padding: 14px 16px; }
+  [data-enquiry-status]:empty { display: none; }
+  [data-enquiry-status][data-state='error'] { background: #f9e9e5; color: #832f23; }
+  [aria-busy='true'] button[type='submit'] { cursor: wait; opacity: .7; }
+}
+
+// Utility pages retain the original simple-container treatment.
+.confirmation-page {
+  h1 { color: $primary; font-weight: 700; }
+  .hero-actions { margin-top: 30px; }
+}
+.site-footer .footer-bottom { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; }
+.site-footer .footer-bottom a { font-size: 14px; }
+.site-footer .footer-contact {
+  margin: 10px 0 0;
+  &:hover,
+  &:focus { border-color: white; }
+}
+
+@include breakpoint(large down) {
+  .proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@include breakpoint(medium down) {
+  .process-list,
+  .process-list:has(> li:nth-child(4):last-child) { grid-template-columns: 1fr; }
+}
+
+@include breakpoint(small down) {
+  .offer-paths,
+  .proof-grid,
+  .proof-grid:has(> :nth-child(2):last-child) { grid-template-columns: 1fr; gap: 16px; margin-top: 28px; }
+
+  .offer-path,
+  .proof-card-content { padding: 22px; }
+
+  .offer-path,
+  .proof-card,
+  .process-list,
+  .service-card,
+  .location-card {
+    h3 { font-size: 22px; }
+  }
+
+  .offer-path,
+  .proof-card,
+  .process-list {
+    p:not(.page-eyebrow) { font-size: 15px; line-height: 22px; }
+    .clear-btn { font-size: 15px; line-height: 22px; }
+  }
+
+  #contactForm { max-height: calc(100dvh - 24px); }
+}
+
+@media (max-width: 600px) {
+  .marketing-shell .senior-care h2 { font-size: 28px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-item summary,
+  .faq-item summary::before { transition: none; }
+}

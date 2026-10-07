@@ -2,80 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://qbattersby.com/</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://qbattersby.com/kitchener-web-developer/</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://qbattersby.com/waterloo-web-developer/</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://qbattersby.com/cambridge-web-developer/</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://qbattersby.com/norfolk-county-web-developer/</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://qbattersby.com/custom-wordpress-development/</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://qbattersby.com/wordpress-maintenance-support/</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://qbattersby.com/figma-to-wordpress/</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-10-06</lastmod>
   </url>
   <url>
     <loc>https://qbattersby.com/kitchener-waterloo-website-design/</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-10-06</lastmod>
   </url>
   <url>
     <loc>https://qbattersby.com/norfolk-county-website-design/</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-10-06</lastmod>
   </url>
   <url>
-    <loc>https://qbattersby.com/simcoe-web-developer/</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://qbattersby.com/custom-wordpress-development/</loc>
+    <lastmod>2026-10-06</lastmod>
   </url>
   <url>
-    <loc>https://qbattersby.com/delhi-web-developer/</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://qbattersby.com/figma-to-wordpress/</loc>
+    <lastmod>2026-10-06</lastmod>
   </url>
   <url>
-    <loc>https://qbattersby.com/tillsonburg-web-developer/</loc>
-    <lastmod>2026-06-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://qbattersby.com/wordpress-maintenance-support/</loc>
+    <lastmod>2026-10-06</lastmod>
   </url>
 </urlset>

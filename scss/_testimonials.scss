@@ -1,0 +1,98 @@
+// Extend the existing blue testimonial; keep its original quote type scale.
+.testimonial[data-testimonials] {
+  .testimonial-slide {
+    margin: 0;
+
+    & + .testimonial-slide {
+      margin-top: 60px;
+      padding-top: 60px;
+      border-top: 1px solid rgba(white, 0.3);
+    }
+  }
+
+  blockquote {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    color: inherit;
+
+    p {
+      color: inherit;
+      font-size: clamp(20px, 2.65vw, 42px);
+      line-height: 1.4;
+      margin-bottom: 36px;
+    }
+  }
+
+  .testimonial-slide--long blockquote p { font-size: clamp(20px, 2.1vw, 34px); }
+
+  .author { font-size: 28px; line-height: 1.15; margin-bottom: 6px; }
+  .author-title { font-size: 18px; line-height: 1.5; margin-bottom: 0; }
+
+  .testimonial-excerpt {
+    display: block;
+    margin-top: 12px;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  &.testimonials-ready {
+    .testimonial-slides { display: grid; }
+
+    .testimonial-slide {
+      grid-area: 1 / 1;
+      min-width: 0;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      margin: 0;
+      padding: 0;
+      border: 0;
+
+      &.is-current {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+  }
+
+  .testimonial-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 24px;
+    padding-top: 28px;
+    margin-top: 40px;
+    border-top: 1px solid rgba(white, 0.3);
+
+    &[hidden] { display: none; }
+
+    button {
+      min-height: 44px;
+      padding: 8px 0;
+      color: white;
+      font: inherit;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.4;
+      cursor: pointer;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 6px;
+
+      &:hover { text-decoration-line: underline; }
+
+      &:focus-visible {
+        outline: 2px solid white;
+        outline-offset: 5px;
+      }
+    }
+  }
+
+  .testimonial-count {
+    margin-left: auto;
+    font-size: 15px;
+    line-height: 1.4;
+    font-variant-numeric: tabular-nums;
+  }
+}

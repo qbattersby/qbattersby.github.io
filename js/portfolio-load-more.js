@@ -8,6 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const items = Array.from(grid.querySelectorAll(':scope > .cell'));
+    // Shuffle once before choosing the first batch; subsequent loads keep this order.
+    for (let i = items.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [items[i], items[j]] = [items[j], items[i]];
+    }
+    const shuffledItems = document.createDocumentFragment();
+    items.forEach((item) => shuffledItems.appendChild(item));
+    grid.appendChild(shuffledItems);
     const batchSize = 6;
     let visibleCount = batchSize;
 
@@ -34,6 +42,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!remainingCount) {
             button.setAttribute('aria-expanded', 'true');
+            if (document.activeElement === button && nextItems.length) {
+                const heading = nextItems[0].querySelector('h4');
+                if (heading) {
+                    heading.tabIndex = -1;
+                    heading.focus({ preventScroll: true });
+                }
+            }
             button.hidden = true;
         }
     });
