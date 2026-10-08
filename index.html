@@ -27,7 +27,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Preload critical assets -->
-    <link rel="stylesheet" href="css/app.css?v=329bf0c391">
+    <link rel="stylesheet" href="css/app.css?v=9dc9f2acce">
     <link rel="preload" href="/js/blue-background.js" as="script">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" as="style">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap">
@@ -133,7 +133,10 @@
                 "WordPress maintenance",
                 "Accessible web development",
                 "Small business website design",
-                "WordPress support"
+                "WordPress support",
+                "Custom business tools",
+                "AI automation",
+                "SaaS product development"
             ],
             "sameAs": [
                 "https://www.linkedin.com/in/qbattersby",
@@ -151,7 +154,7 @@
             "url": "https://qbattersby.com/",
             "logo": "https://qbattersby.com/img/logo.png",
             "image": "https://qbattersby.com/img/social-share.png",
-            "description": "Website design, custom WordPress development and support with Quinn Battersby, based in Delhi, Ontario. Working with businesses and agencies in Norfolk County, Kitchener–Waterloo and beyond.",
+            "description": "Website design, custom WordPress development, business tools and AI automation with Quinn Battersby, based in Delhi, Ontario. Working with businesses and agencies in Norfolk County, Kitchener–Waterloo and beyond.",
             "founder": {
                 "@id": "https://qbattersby.com/#quinn"
             },
@@ -212,6 +215,14 @@
                     "price": "0",
                     "priceCurrency": "CAD",
                     "description": "A free consultation to discuss WordPress development, redesigns, performance, accessibility, and maintenance needs."
+                },
+                {
+                    "@type": "Offer",
+                    "name": "Custom software and AI automation",
+                    "itemOffered": {
+                        "@id": "https://qbattersby.com/custom-software-development/#service"
+                    },
+                    "url": "https://qbattersby.com/custom-software-development/"
                 }
             ],
             "sameAs": [
@@ -240,13 +251,13 @@
         <input type="hidden" name="redirect" value="https://qbattersby.com/thank-you.html">
         <div class="form-honeypot" aria-hidden="true"><label for="contact-botcheck">Leave this field unchecked</label><input id="contact-botcheck" type="checkbox" name="botcheck" tabindex="-1" autocomplete="off"></div>
         <div class="grid-container contact-form"><div class="grid-x grid-margin-x">
-            <div class="cell"><p class="page-eyebrow">Project enquiry</p><h3 id="contact-form-title">Contact Quinn</h3><p>Describe your project, or the changes you need to an existing website. Include your timeline if you have one.</p></div>
+            <div class="cell"><p class="page-eyebrow">Project enquiry</p><h3 id="contact-form-title">Contact Quinn</h3><p>Describe your website, software idea or the task you’d like to make easier. Include your timeline if you have one.</p></div>
             <div class="medium-6 cell"><label for="contact-name">Your name</label><input id="contact-name" type="text" name="name" required autocomplete="name"></div>
             <div class="medium-6 cell"><label for="contact-email">Email address</label><input id="contact-email" type="email" name="email" required autocomplete="email"></div>
-            <div class="medium-4 cell"><label for="project-type">I’m looking for <span>(optional)</span></label><select id="project-type" name="project_type"><option value="">Choose if you know</option><option>A new website or redesign</option><option>Agency development support</option><option>Figma to WordPress development</option><option>WordPress fixes or maintenance</option><option>Something else</option></select></div>
+            <div class="medium-4 cell"><label for="project-type">I’m looking for <span>(optional)</span></label><select id="project-type" name="project_type"><option value="">Choose if you know</option><option>A new website or redesign</option><option>Agency development support</option><option>Figma to WordPress development</option><option>WordPress fixes or maintenance</option><option>A custom business tool or SaaS product</option><option>AI automation or integrations</option><option>Something else</option></select></div>
             <div class="medium-4 cell"><label for="project-budget">Budget <span>(optional)</span></label><select id="project-budget" name="budget_range"><option value="">Not sure yet</option><option>Under $2,000 / a smaller fix</option><option>$2,000–$5,000</option><option>$5,000–$10,000</option><option>$10,000+</option></select></div>
             <div class="medium-4 cell"><label for="project-timeline">Timing <span>(optional)</span></label><select id="project-timeline" name="ideal_timeline"><option value="">Not sure yet</option><option>As soon as possible</option><option>In the next few months</option><option>I have a fixed deadline</option><option>Flexible</option></select></div>
-            <div class="cell"><label for="contact-message">Project details</label><textarea id="contact-message" name="message" class="message-box" placeholder="Your website or idea, project requirements and preferred timeline." required></textarea><p class="form-note">New websites start at $2,000 + HST. Development support and smaller fixes are quoted to scope.</p><p data-enquiry-status role="status" aria-live="polite" tabindex="-1"></p><button type="submit" class="button primary">Send message</button><p class="form-note">Prefer email? <a href="mailto:quinn@battersby.ca">quinn@battersby.ca</a><br>I’ll use these details to reply about your project.</p></div>
+            <div class="cell"><label for="contact-message">Project details</label><textarea id="contact-message" name="message" class="message-box" placeholder="Your website or software idea, the problem you want to solve and your preferred timeline." required></textarea><p class="form-note">Websites start at $2,000 + HST. Custom software, automation and development support are quoted to scope.</p><p data-enquiry-status role="status" aria-live="polite" tabindex="-1"></p><button type="submit" class="button primary">Send message</button><p class="form-note">Prefer email? <a href="mailto:quinn@battersby.ca">quinn@battersby.ca</a><br>I’ll use these details to reply about your project.</p></div>
         </div></div>
     </form>
     <button class="close-button" data-close aria-label="Close enquiry form" type="button"><span aria-hidden="true">&times;</span></button>
@@ -279,7 +290,7 @@
 </header>
 <section id="studio" class="studio-intro" aria-label="Design and WordPress development">
     <div class="studio-intro__copy">
-        <p class="main-callout">I design and build websites for businesses and agencies, specializing in custom WordPress development.</p>
+        <p class="main-callout">I design and build websites and custom business tools, specializing in WordPress development and practical AI automation.</p>
         <div class="hero-actions">
             <button class="button primary toggle-contact" type="button" data-open="contactForm" data-enquiry-context="generic" aria-haspopup="dialog" aria-controls="contactForm">Tell me about your project</button>
             <a class="button secondary" href="#work">See my work</a>
@@ -335,10 +346,17 @@
     <div class="senior-care__copy"><h2 id="care-title">Custom WordPress development</h2><p>I build WordPress sites with reusable layouts and editing tools for the content you need to manage. You can update pages without rebuilding the design or writing code.</p><p>I check how the site works on different screens, with a keyboard and with your content in place. I’ll walk you through editing your site at handoff. Maintenance and ongoing support can be arranged separately.</p><a class="clear-btn" href="/custom-wordpress-development/">Custom WordPress services</a></div>
 </section>
 <section id="services" class="content-section compact-section" aria-labelledby="services-title">
-    <div class="content-intro"><h2 id="services-title">Web design &amp; development services</h2></div>
+    <div class="content-intro"><h2 id="services-title">Website &amp; software development services</h2></div>
     <div class="offer-paths">
         <article class="offer-path service-card"><p class="page-eyebrow">For businesses</p><h3>Website design &amp; development</h3><p>I design and build custom WordPress websites for businesses and organizations, with an editing setup you can manage yourself.</p><p>The project starts with your audience, content and requirements, so the design supports what visitors need to find or do.</p><a class="button secondary" href="/custom-wordpress-development/">Website services</a></article>
         <article class="offer-path service-card"><p class="page-eyebrow">For agencies &amp; designers</p><h3>Figma to WordPress</h3><p>I work with agencies and designers to turn Figma designs into custom WordPress themes, reusable blocks and responsive front ends.</p><p>Share your designs and requirements, and we’ll agree on the development scope, responsibilities and handoff.</p><a class="button secondary" href="/figma-to-wordpress/">Agency development</a></article>
+        <article id="business-tools" class="offer-path offer-path--wide service-card">
+            <p class="page-eyebrow">Custom software &amp; AI automation</p>
+            <h3>Custom tools for your business</h3>
+            <p>I build software around the everyday needs of your business, including client support and operations management. These tools use AI and automation to reduce repetitive work and make routine tasks easier to manage.</p>
+            <p>Tell me what’s taking up your team’s time, and we can work out whether a custom tool would help.</p>
+            <a class="button secondary" href="/custom-software-development/">Explore business tools</a>
+        </article>
     </div>
     <p class="support-link">Already have a WordPress site? <a href="/wordpress-maintenance-support/">I can help with fixes, improvements and maintenance.</a></p>
 </section>
@@ -1072,14 +1090,15 @@
 <section id="contact" class="grid-margin-x grid-x align-center" aria-labelledby="contact-title">
     <div class="cell large-9">
         <h2 class="contact-heading" id="contact-title"><a href="#contactForm" class="toggle-contact js-getintouch" data-open="contactForm" data-enquiry-context="generic" aria-haspopup="dialog" aria-controls="contactForm">Get in Touch</a></h2>
-<p>Tell me about your website or the project you’re planning. We can discuss the scope, timing and budget.</p><div class="hero-actions"><button class="button primary toggle-contact" type="button" data-open="contactForm" data-enquiry-context="generic" aria-haspopup="dialog" aria-controls="contactForm">Send a message</button><a class="clear-btn" href="mailto:quinn@battersby.ca">quinn@battersby.ca</a></div><p class="mini-note">Prefer a call? <a href="tel:+12263381659">226-338-1659</a></p>
-<div id="about" class="about-copy"><h3 id="about-title">About me</h3><p>I'm a senior web developer, entrepreneur, husband and father of three based in Delhi, Ontario.</p><p>With <span data-experience-start="2008" data-experience-template="over {years} years of experience">experience dating back to 2008</span>, I build custom WordPress themes and websites for businesses, agencies and organizations. I also co-founded <a href="https://www.goosechase.com/" target="_blank" rel="noopener noreferrer">Goosechase</a> and am a technologist and instructor at Conestoga College.</p><p>I work with businesses, agencies and organizations across Norfolk County, Kitchener–Waterloo and beyond.</p></div>
+<p>Tell me about your website, software idea or a recurring task you’d like to make easier. We can discuss the scope, timing and budget.</p><div class="hero-actions"><button class="button primary toggle-contact" type="button" data-open="contactForm" data-enquiry-context="generic" aria-haspopup="dialog" aria-controls="contactForm">Send a message</button><a class="clear-btn" href="mailto:quinn@battersby.ca">quinn@battersby.ca</a></div><p class="mini-note">Prefer a call? <a href="tel:+12263381659">226-338-1659</a></p>
+<div id="about" class="about-copy"><h3 id="about-title">About me</h3><p>I'm a senior web developer, entrepreneur, husband and father of three based in Delhi, Ontario.</p><p>With <span data-experience-start="2008" data-experience-template="over {years} years of experience">experience dating back to 2008</span>, I build custom WordPress themes and websites for businesses, agencies and organizations. My work also includes custom software for client support, operations and everyday business tasks. I co-founded <a href="https://www.goosechase.com/" target="_blank" rel="noopener noreferrer">Goosechase</a> and am a technologist and instructor at Conestoga College.</p><p>I work with businesses, agencies and organizations across Norfolk County, Kitchener–Waterloo and beyond.</p></div>
 </div>
 </section>
 <section class="grid-margin-x grid-x align-center" aria-labelledby="faq"><div class="cell large-9"><div class="content-intro"><h2 id="faq">Frequently asked questions</h2></div><div class="faq-section">
 <details class="faq-item"><summary>Can you do the design as well as the development?</summary><div><p>Yes. I can design and build the website, or work from designs your team already has. Tell me where you’re starting and we’ll work out the right approach.</p></div></details>
 <details class="faq-item"><summary>Can I update the website myself?</summary><div><p>That’s part of the plan. We’ll identify what you need to change regularly and build the editing setup around it. I’ll show you how to use it before we finish the handoff.</p></div></details>
-<details class="faq-item"><summary>What do you need from me to estimate a project?</summary><div><p>A description of your idea or what you need the website to do is enough to start. Share an existing website if you have one, along with any deadline or budget. Designs and a page list are helpful, but not required for the first conversation.</p></div></details>
+<details class="faq-item"><summary>What do you need from me to estimate a project?</summary><div><p>A description of your idea or the problem you want to solve is enough to start. Share an existing website if you have one, along with any deadline or budget. Designs and a page list are helpful, but not required for the first conversation.</p></div></details>
+<details class="faq-item"><summary>Can you build business tools as well as websites?</summary><div><p>Yes. I build custom tools for client support, operations and other day-to-day tasks, using AI and automation where they help. I also develop SaaS products. <a href="/custom-software-development/">Explore custom software and business tools.</a></p></div></details>
 <details class="faq-item"><summary>Do you work with agencies?</summary><div><p>Yes. I work alongside designers and agency teams on custom WordPress builds and front-end development. We’ll agree on responsibilities, communication and handoff. <a href="/figma-to-wordpress/">Read about development for agencies.</a></p></div></details>
 <details class="faq-item"><summary>Can you help with my existing WordPress site?</summary><div><p>Yes. Send the site and the problem you’re trying to solve. I can look at fixes, editing issues, performance, accessibility and maintenance before we decide whether a larger rebuild makes sense. <a href="/wordpress-maintenance-support/">See WordPress support.</a></p></div></details>
 <details class="faq-item"><summary>Can we meet in person?</summary><div><p>Yes. I’m based in Delhi, Ontario, and work with clients in Norfolk County, Kitchener–Waterloo and remotely.</p></div></details>
@@ -1088,16 +1107,16 @@
 </div>
 
 <footer class="site-footer"><div class="grid-container"><div class="footer-grid">
-    <div><p class="footer-brand">Quinn Battersby</p><p>Web design and custom WordPress development.<br>Based in Delhi, Ontario.</p><p><a href="mailto:quinn@battersby.ca">quinn@battersby.ca</a><br><a href="tel:+12263381659">226-338-1659</a></p><p><a href="/#about">About Quinn</a> &middot; <a href="https://www.linkedin.com/in/qbattersby" target="_blank" rel="noopener noreferrer">LinkedIn</a> &middot; <a href="https://github.com/qbattersby" target="_blank" rel="noopener noreferrer">GitHub</a></p><p><button class="button secondary footer-contact" type="button" data-open="contactForm" data-enquiry-context="generic" aria-haspopup="dialog" aria-controls="contactForm">Discuss your project</button></p></div>
-    <div><p class="footer-heading">Services</p><ul><li><a href="/custom-wordpress-development/">Custom WordPress development</a></li><li><a href="/figma-to-wordpress/">Figma to WordPress</a></li><li><a href="/wordpress-maintenance-support/">WordPress maintenance &amp; support</a></li><li><a href="/#work">Selected work</a></li></ul></div>
+    <div><p class="footer-brand">Quinn Battersby</p><p>Websites, custom business tools and automation.<br>Based in Delhi, Ontario.</p><p><a href="mailto:quinn@battersby.ca">quinn@battersby.ca</a><br><a href="tel:+12263381659">226-338-1659</a></p><p><a href="/#about">About Quinn</a> &middot; <a href="https://www.linkedin.com/in/qbattersby" target="_blank" rel="noopener noreferrer">LinkedIn</a> &middot; <a href="https://github.com/qbattersby" target="_blank" rel="noopener noreferrer">GitHub</a></p><p><button class="button secondary footer-contact" type="button" data-open="contactForm" data-enquiry-context="generic" aria-haspopup="dialog" aria-controls="contactForm">Discuss your project</button></p></div>
+    <div><p class="footer-heading">Services</p><ul><li><a href="/custom-wordpress-development/">Custom WordPress development</a></li><li><a href="/figma-to-wordpress/">Figma to WordPress</a></li><li><a href="/wordpress-maintenance-support/">WordPress maintenance &amp; support</a></li><li><a href="/custom-software-development/">Custom software &amp; AI automation</a></li><li><a href="/#work">Selected work</a></li></ul></div>
     <div><p class="footer-heading">Service areas</p><ul><li><a href="/kitchener-waterloo-website-design/">Kitchener–Waterloo &amp; Cambridge</a></li><li><a href="/norfolk-county-website-design/">Norfolk County &amp; Tillsonburg</a></li></ul></div>
 </div><div class="footer-bottom"><p>&copy; 2026 Quinn Battersby.</p><a href="#main-content">Back to top</a></div></div></footer>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js"></script>
 <script src="/js/experience.js?v=393242f370" defer></script>
-<script src="/js/site.js?v=71f79f0d35" defer></script>
-<script src="/js/enquiry.js?v=bf28839736" defer></script>
+<script src="/js/site.js?v=4265b0461a" defer></script>
+<script src="/js/enquiry.js?v=514a3d05f6" defer></script>
 <script src="/js/analytics.js?v=9796b8a25e" defer></script>
 <script src="/js/blue-background.js" defer></script>
 <script src="/js/portfolio-load-more.js?v=ad1547e95e" defer></script>

@@ -11,7 +11,7 @@
         if (!trigger || !['qbattersby.com', 'www.qbattersby.com'].includes(window.location.hostname)) return;
 
         var method = trigger.hasAttribute('data-open') ? 'form' : (trigger.getAttribute('href').startsWith('mailto:') ? 'email' : 'phone');
-        var contexts = ['generic', 'business-website', 'agency-development', 'wordpress-support', 'figma-development', 'kitchener-waterloo', 'norfolk-county'];
+        var contexts = ['generic', 'business-website', 'agency-development', 'wordpress-support', 'figma-development', 'kitchener-waterloo', 'norfolk-county', 'custom-software'];
         var context = trigger.getAttribute('data-enquiry-context');
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({

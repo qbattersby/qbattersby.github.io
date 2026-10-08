@@ -114,6 +114,18 @@ test('unknown or missing enquiry context cannot leak into analytics', async () =
   }
 });
 
+test('software enquiries retain their service context without exposing project details', async () => {
+  const h = harness();
+  h.context('custom-software');
+  h.fields.project_type = 'A custom business tool or SaaS product';
+  await h.submit();
+  assert.equal(h.window.dataLayer.length, 1);
+  const lead = h.window.dataLayer[0];
+  assert.equal(lead.enquiry_context, 'custom-software');
+  assert.equal(lead.event, 'generate_lead');
+  assert.doesNotMatch(JSON.stringify(lead), /Private project notes|person@example|SaaS/);
+});
+
 test('pending requests disable submission and prevent duplicate requests', async () => {
   let release;
   const response = new Promise((resolve) => { release = resolve; });

@@ -89,6 +89,11 @@
   position: relative;
 }
 .offer-path { padding: 30px; }
+.offer-path--wide {
+  grid-column: 1 / -1;
+
+  > p:not(.page-eyebrow) { max-width: 70ch; }
+}
 .proof-card {
   > a,
   picture { display: block; }

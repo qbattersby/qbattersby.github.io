@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://qbattersby.com/</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-08</lastmod>
   </url>
   <url>
     <loc>https://qbattersby.com/kitchener-waterloo-website-design/</loc>
@@ -23,5 +23,9 @@
   <url>
     <loc>https://qbattersby.com/wordpress-maintenance-support/</loc>
     <lastmod>2026-10-06</lastmod>
+  </url>
+  <url>
+    <loc>https://qbattersby.com/custom-software-development/</loc>
+    <lastmod>2026-10-08</lastmod>
   </url>
 </urlset>

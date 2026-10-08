@@ -132,10 +132,12 @@ test('contact intent distinguishes form, email and phone on both production host
     h.click({ 'data-open': 'contactForm', 'data-enquiry-context': 'business-website' });
     h.click({ href: 'mailto:quinn@battersby.ca', 'data-enquiry-context': 'figma-development' });
     h.click({ href: 'tel:+12263381659', 'data-enquiry-context': 'norfolk-county' });
+    h.click({ 'data-open': 'contactForm', 'data-enquiry-context': 'custom-software' });
     assert.deepEqual(plain(h.window.dataLayer), [
       { event: 'contact_intent', contact_method: 'form', enquiry_context: 'business-website' },
       { event: 'contact_intent', contact_method: 'email', enquiry_context: 'figma-development' },
-      { event: 'contact_intent', contact_method: 'phone', enquiry_context: 'norfolk-county' }
+      { event: 'contact_intent', contact_method: 'phone', enquiry_context: 'norfolk-county' },
+      { event: 'contact_intent', contact_method: 'form', enquiry_context: 'custom-software' }
     ]);
     assert.equal(h.scripts.length, 0);
   }

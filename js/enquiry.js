@@ -10,7 +10,8 @@
     'wordpress-support',
     'figma-development',
     'kitchener-waterloo',
-    'norfolk-county'
+    'norfolk-county',
+    'custom-software'
   ];
   var enquiryContext = 'generic';
 

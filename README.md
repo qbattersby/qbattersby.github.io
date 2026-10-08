@@ -6,7 +6,7 @@ Local development, publication and Google measurement are separate stages. A Git
 
 ## Content and routes
 
-Six canonical pages serve distinct purposes:
+Seven canonical pages serve distinct purposes:
 
 | Route | Purpose |
 | --- | --- |
@@ -16,8 +16,9 @@ Six canonical pages serve distinct purposes:
 | `/custom-wordpress-development/` | Complete websites, development scope, editing and handoff |
 | `/figma-to-wordpress/` | Development for agencies, designers and internal teams |
 | `/wordpress-maintenance-support/` | Scoped fixes, maintenance and improvements to existing sites |
+| `/custom-software-development/` | Custom business tools, AI automation, integrations and SaaS development |
 
-The copy is first person, separates design-and-development work from development-only credit, and explains scope before price commitments. New websites start at $2,000 + HST; agency work and existing-site improvements are quoted separately. Regional pages consolidate the earlier town pages instead of repeating city-name variations. Tillsonburg is in Oxford County, near Norfolk County.
+The copy is first person, separates design-and-development work from development-only credit, and explains scope before price commitments. New websites start at $2,000 + HST; custom software, automation, agency work and existing-site improvements are quoted separately. Regional pages consolidate the earlier town pages instead of repeating city-name variations. Tillsonburg is in Oxford County, near Norfolk County.
 
 Seven old routes remain as static redirect documents:
 
@@ -31,7 +32,7 @@ Seven old routes remain as static redirect documents:
 | `/delhi-web-developer/` | `/norfolk-county-website-design/` |
 | `/tillsonburg-web-developer/` | `/norfolk-county-website-design/#nearby-communities` |
 
-These use **zero-delay HTML meta refresh**, destination canonicals and visible fallback links because this is GitHub Pages hosting. They are **not HTTP 301 responses**. The sitemap lists only the six canonical pages. Keep old routes available when publishing; if hosting later supports server redirects, replace the documents with real permanent redirects. `thank-you.html` and `404.html` are excluded from indexing.
+These use **zero-delay HTML meta refresh**, destination canonicals and visible fallback links because this is GitHub Pages hosting. They are **not HTTP 301 responses**. The sitemap lists only the seven canonical pages. Keep old routes available when publishing; if hosting later supports server redirects, replace the documents with real permanent redirects. `thank-you.html` and `404.html` are excluded from indexing.
 
 ## Portfolio and presentation
 
@@ -59,6 +60,32 @@ The homepage has 42 projects. Amplify Care and Digital Ed were already present; 
 - Experience is calculated as the current calendar year minus 2008 by `js/experience.js`. Visible counters use `data-experience-start` and `data-experience-template`; their source text and metadata use timeless “since 2008” wording. No start-day anniversary is assumed.
 - The homepage leads with website design and development, with the custom WordPress specialty in supporting copy, metadata and service content. Ongoing support is optional and arranged separately. Portfolio items without a working destination omit the visit button and archive label.
 
+## Custom software services — October 8
+
+The October 8 update introduces custom business tools and AI automation alongside the
+website services. The main website headline and established design remain in place.
+A full-width homepage card links to `/custom-software-development/`, with supporting
+mentions in the introduction, About, FAQs, regional pages and shared footer.
+
+The service page describes client support and operations work, potential AI uses,
+integrations and SaaS development. It makes no claims about unnamed clients,
+measured outcomes or vendor partnerships. Software scope, running costs and optional
+support are separate from the website starting price. The shared enquiry form now
+includes custom software/SaaS and AI automation/integration options. The fixed
+`custom-software` enquiry context is supported by both intent and confirmed-lead
+tracking; private form fields are still excluded from analytics. Page metadata,
+linked service schema and the sitemap include the new route.
+
+The draft was reviewed locally and approved for publication on October 8. No Google
+account changes were needed for this update.
+
+Verified locally on October 8: the stylesheet build and 21 enquiry/measurement tests
+passed, as did syntax checks for the two changed scripts. All seven pages passed
+metadata, JSON-LD, unique-ID, internal-link/fragment, asset-hash and sitemap checks.
+Browser review covered the homepage addition and new service page on desktop and
+390px mobile layouts, the new enquiry choices, keyboard FAQ disclosure and local
+submission guard. The local form test sent no message.
+
 ## Local development and checks
 
 Use Node.js 18 or later. Install the locked dependencies with `npm ci` when needed. Edit HTML and the SCSS sources, then build the generated CSS:
@@ -76,7 +103,7 @@ node --check js/testimonials.js
 node --check js/experience.js
 ```
 
-`scss/app.scss` imports `_custom.scss`, `_homepage-studio.scss`, `_site-content.scss` and `_testimonials.scss`. Do not hand-edit `css/app.css` or its source map. After a build or JavaScript edit, update affected HTML asset `?v=` values to the first ten characters of the file's SHA-256 digest. Shared contact controls, footer and form markup is repeated in the six static HTML files; update all instances together.
+`scss/app.scss` imports `_custom.scss`, `_homepage-studio.scss`, `_site-content.scss` and `_testimonials.scss`. Do not hand-edit `css/app.css` or its source map. After a build or JavaScript edit, update affected HTML asset `?v=` values to the first ten characters of the file's SHA-256 digest. Shared contact controls, footer and form markup is repeated in the seven main static HTML files; update all instances together.
 
 Racklight serves the local site independently of the build. `npm start` also invokes the legacy TinyPNG image task before starting BrowserSync; use `npm run build` for normal style work. Existing Foundation/Sass deprecation warnings are separate from build failures.
 
@@ -90,8 +117,9 @@ to 2560px, native FAQ keyboard operation, the contact dialog and local submissio
 guard, portfolio loading/touch overlays, utility pages and all seven redirects.
 The homepage remains visible with JavaScript disabled and presents a finished
 workspace with reduced motion. The final homepage load had no failed asset requests
-or console errors and loaded no production trackers. No live enquiry was sent;
-production delivery and Analytics collection remain launch checks.
+or console errors and loaded no production trackers. No live enquiry email was sent.
+Production Analytics verification is recorded below; actual inbox delivery remains
+a separate check with a deliberately authorized enquiry.
 
 ## Enquiries and measurement
 
@@ -101,12 +129,22 @@ production delivery and Analytics collection remain launch checks.
 
 The normal HTML POST remains as a fallback when JavaScript is unavailable; it does **not** provide the measured JavaScript confirmation event. With JavaScript active, non-production hosts block submission and display a local-preview notice. Keep JavaScript enabled when testing that guard.
 
-`js/analytics.js` loads the existing GTM container (`GTM-T897BK`) and existing homepage Mixpanel setup only on `qbattersby.com` and `www.qbattersby.com`. Local review does not load those trackers. **No new GA4 tag has been added.** The source emits events, but a GA4 event binding and key-event configuration must still be verified/configured in the existing account at an approved launch. Inspect the existing connected Google tag first to avoid duplicate measurement. Zero currently recorded key events is not evidence of zero enquiries.
+`js/analytics.js` loads the existing GTM container (`GTM-T897BK`) and existing homepage Mixpanel setup only on `qbattersby.com` and `www.qbattersby.com`. Local review does not load those trackers.
+
+**GTM version 6, “GA4 enquiry and contact tracking,” was published on October 6, 2026.** It loads measurement ID `G-V7YEP14JCS` in the existing GA4 property `399039551`, with a Google tag on Initialization – All Pages. The two legacy Universal Analytics tags are paused. One GA4 event tag matches only `^(contact_intent|generate_lead)$`, using the built-in Event variable and two version-2 data-layer variables for `contact_method` and `enquiry_context`.
+
+GA4 has event-scoped **Contact method** and **Enquiry context** custom dimensions. Only `generate_lead` is marked as an enquiry key event, counted once per event, with no default monetary value. Form opens and email/phone clicks indicate intent; they do not prove a message was sent or a call connected. Existing default purchase configuration was left unchanged.
+
+Verification: Tag Assistant confirmed one event tag firing for each form-open/email/phone click. Google accepted all three contact methods with HTTP 204. A controlled browser test intercepted Web3Forms and simulated its success response, confirmed one `generate_lead` request with the expected parameters and key-event flag, and intercepted that analytics request before collection. No test email or synthetic lead was delivered. Failed simulated submissions produced no lead. After publishing, an uncached normal load sent one GA4 page view, no legacy Universal Analytics script, and a form-open event accepted with HTTP 204. The 20 enquiry/measurement tests passed.
+
+GA4 Realtime also displayed the contact-intent events, with no synthetic lead in its key-event table. An October 6 Analytics annotation records the tracking launch. New custom dimensions and standard reports may need 24–48 hours to populate. Earlier zero key-event totals are not evidence of zero enquiries; historical leads cannot be reconstructed from this setup. Ad blockers can prevent collection, including the owner's AdGuard configuration.
 
 Two native GA dashboards already exist under **Reports → Custom dashboards**:
 
 - [Quinn | Business overview](https://analytics.google.com/analytics/web/#/a12843625p399039551/reports/builder/16054933199)
 - [Quinn | Local & AI discovery](https://analytics.google.com/analytics/web/#/a12843625p399039551/reports/builder/16054975630)
+
+The Business overview now includes **Contact clicks | form, email and phone** (contact-intent event count by contact method) and **Confirmed enquiries | service and location** (generate-lead key events by enquiry context), alongside traffic, landing pages and conversion-rate cards. The context describes the clicked call to action, not the visitor's physical location. Use Analytics acquisition reports to examine enquiry sources; use Search Console for search impressions, clicks and queries.
 
 ## Search and AI discovery
 
@@ -118,8 +156,8 @@ No `llms.txt`, special AI schema or crawler-specific copy has been added. Google
 
 1. Review the final local pages, route consolidation and Git diff; build and run the checks above.
 2. Publish the approved files, including redirect documents and sitemap. Confirm live URLs, assets, canonicals and redirect destinations.
-3. Verify the existing GA4/connected-tag arrangement. Bind the two data-layer events through the approved GTM setup, mark only confirmed `generate_lead` as a key event, and verify a deliberately authorized test enquiry end to end.
-4. Check the Search Console property, submit the updated sitemap and inspect the six canonical URLs. Monitor consolidation/indexing rather than assuming immediate ranking changes.
+3. Tracking was published and verified on October 6 as described above. Actual form-to-inbox delivery still requires a deliberately authorized enquiry; the browser success test used an intercepted response.
+4. Check the Search Console property, submit the updated sitemap and inspect the seven canonical URLs. Monitor consolidation/indexing rather than assuming immediate ranking changes.
 5. Use the dashboards and Canadian Search Console data to assess qualified traffic and confirmed enquiries. Compare trends only after measurement is working; record the launch and tracking-change dates.
 
 Google tracking configuration, test enquiries and Search Console submissions are not performed automatically by a GitHub Pages deployment.
