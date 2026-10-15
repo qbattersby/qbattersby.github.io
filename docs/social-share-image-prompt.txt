@@ -1,0 +1,5 @@
+Built-in image generation edit brief — October 15, 2026
+
+Reference: approved option 2, blue website/business-tools share image.
+
+Edit the supplied approved social share image with maximum fidelity. Change ONLY the bottom-left URL text from "qbattersby.com" to "battersby.ca". The new URL must read exactly "battersby.ca", with the same white font, size, baseline and left alignment. Reconstruct the blue background smoothly where the old text extended farther to the right. Preserve everything else exactly: Quinn Battersby name, the three headline lines "Websites.", "Business tools.", "Built for you.", the two service lines "Custom WordPress development" and "& practical AI automation", all colours, the website monitor, operations interface, code panel, desk, plants, lighting, composition and overall wide landscape aspect ratio. Do not redesign, reword, add, remove, relocate or crop any other element. Opaque output.

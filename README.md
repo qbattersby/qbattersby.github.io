@@ -146,6 +146,27 @@ Two native GA dashboards already exist under **Reports → Custom dashboards**:
 
 The Business overview now includes **Contact clicks | form, email and phone** (contact-intent event count by contact method) and **Confirmed enquiries | service and location** (generate-lead key events by enquiry context), alongside traffic, landing pages and conversion-rate cards. The context describes the clicked call to action, not the visitor's physical location. Use Analytics acquisition reports to examine enquiry sources; use Search Console for search impressions, clicks and queries.
 
+## Social share images
+
+The October 15 artwork uses the approved blue website/business-tools composition
+with **battersby.ca** in the image. That address redirects to qbattersby.com; canonical
+URLs and site hosting remain unchanged.
+
+- `img/social-share-2026-10-15.jpg`: 1200 × 630 JPEG for Open Graph and business schema.
+- `img/social-share-x-2026-10-15.jpg`: 1200 × 600 JPEG for X large-image cards.
+- Both use optimized JPEG encoding at quality 86 with full chroma resolution for
+  text, and are about 123 KiB each. All seven canonical pages reference these
+  versioned filenames, with image dimensions/type and descriptive image alt text.
+- Previous image assets remain available for older cached references. Newly fetched
+  metadata points to the new files; platforms may keep older previews until they
+  refresh the page. No email, message or social post was sent to test the change.
+
+The approved image was edited with the built-in image generation tool to replace
+only `qbattersby.com` with `battersby.ca`, preserving the composition and other copy.
+The edit brief is in `docs/social-share-image-prompt.txt`. Resizing and compression
+use the existing Sharp dependency. Inspect both exports before replacing them;
+keep the headline, name and URL clear of the crop boundaries.
+
 ## Search and AI discovery
 
 Useful page content, project roles and contact links are present in the initial HTML. Canonicals, metadata and the linked Person/business/website/page/service schema describe the visible content. `robots.txt` allows crawling and points to the sitemap. Do not invent reviews, outcomes, offices or location-specific projects.
