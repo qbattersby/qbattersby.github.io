@@ -167,6 +167,46 @@ The edit brief is in `docs/social-share-image-prompt.txt`. Resizing and compress
 use the existing Sharp dependency. Inspect both exports before replacing them;
 keep the headline, name and URL clear of the crop boundaries.
 
+### Animated share companion
+
+`video/social-studio-v2.mp4` is a twelve-second silent reveal using the established
+blue theme and Montserrat type. An empty desk gains a monitor, code editor, keyboard
+and business-tool switches. The headline arrives line by line. The screen opens the
+actual portfolio homepage, scrolls through twelve project thumbnails, then settles
+on a four-project view. **battersby.ca** arrives last, followed by a readable hold
+and a fade back to the opening background. The business-tool panel is illustrative.
+
+The export is 1200 × 630, 30 fps, H.264/yuv420p with no audio and MP4 fast start,
+about 1.5 MiB. All seven canonical pages advertise its HTTPS URL through `og:video`
+and the video type/dimension properties. Existing `og:image` and X large-image cards
+remain intact. [Apple Messages supports downloadable Open Graph videos](https://developer.apple.com/documentation/technotes/tn3156-create-rich-previews-for-messages);
+other clients can choose a still image. Playback and autoplay depend on the client.
+No third-party sharing result has been claimed as verified.
+
+Review locally at `/social-preview/`. Native controls, **Replay reveal** and
+**View finished frame** are available. Reduced motion suppresses autoplay. The page
+is marked `noindex, nofollow`, is absent from the sitemap and site navigation, and
+uses `img/social-studio-poster-v2.jpg` as its poster.
+
+The source is `scripts/render-social-studio.cjs`. Its input assets are in
+`img/social-studio/`; the background was edited with the built-in image-generation
+tool, and both portfolio screenshots were captured from the local site in Chrome.
+The brief and source notes are in `docs/social-studio-motion.md`. Static Montserrat
+fonts from Google Fonts and their OFL license are in `scripts/fonts/`.
+
+Rendering requires Node, Sharp (already in this project), `@napi-rs/canvas` 0.1.100,
+ffmpeg on PATH and macOS Menlo. The local build uses Canvas from the bundled Codex
+runtime without adding a website dependency:
+
+```sh
+NODE_PATH=/Users/qbattersby/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules node scripts/render-social-studio.cjs
+```
+
+Use `--stills` for inspection frames and the poster without encoding video.
+Inspection frames go into the system temporary directory. Rendering does not publish
+anything. Publish the MP4 with its metadata, and use a new versioned filename when
+replacing the video so cached share cards can discover the new asset.
+
 ## Search and AI discovery
 
 Useful page content, project roles and contact links are present in the initial HTML. Canonicals, metadata and the linked Person/business/website/page/service schema describe the visible content. `robots.txt` allows crawling and points to the sitemap. Do not invent reviews, outcomes, offices or location-specific projects.
