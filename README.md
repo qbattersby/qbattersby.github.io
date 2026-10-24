@@ -183,10 +183,11 @@ remain intact. [Apple Messages supports downloadable Open Graph videos](https://
 other clients can choose a still image. Playback and autoplay depend on the client.
 No third-party sharing result has been claimed as verified.
 
-Review locally at `/social-preview/`. Native controls, **Replay reveal** and
-**View finished frame** are available. Reduced motion suppresses autoplay. The page
-is marked `noindex, nofollow`, is absent from the sitemap and site navigation, and
-uses `img/social-studio-poster-v2.jpg` as its poster.
+The local-only review page at `/social-preview/` is ignored by Git and must not be
+published to GitHub Pages. Its local copy provides native controls, **Replay reveal**
+and **View finished frame**. Reduced motion suppresses autoplay, and
+`img/social-studio-poster-v2.jpg` supplies its poster. Only the animation, supporting
+assets and sharing metadata belong on the live site.
 
 The source is `scripts/render-social-studio.cjs`. Its input assets are in
 `img/social-studio/`; the background was edited with the built-in image-generation
